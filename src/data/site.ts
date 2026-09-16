@@ -71,5 +71,36 @@ export const siteData = {
         },
       ] as StoryItem[],
     },
+    architecture: {
+      eyebrow: "EM PLANO, EM MEMÓRIA",
+      title: "Imagem em escala\narquitetônica.",
+      images: [
+        {
+          src: "/images/stories/story-atmosfera.webp",
+          alt: "Interior do restaurante Jundu com estrutura de madeira e iluminação acolhedora",
+          caption: "Arquitetura e atmosfera",
+          objectPosition: "center 40%",
+        },
+        {
+          src: "/images/stories/story-atendimento.webp",
+          alt: "Colaborador do Jundu servindo os convidados",
+          caption: "Pessoas e hospitalidade",
+          objectPosition: "center 30%",
+        },
+        {
+          src: "/images/stories/story-gastronomia.webp",
+          alt: "Detalhe da gastronomia servida à mesa",
+          caption: "Gastronomia e detalhe",
+          objectPosition: "center center",
+        },
+      ],
+    },
+    jWindow: {
+      eyebrow: "SÍMBOLO VIVO",
+      title: 'O "J" se torna uma\njanela para o Jundu.',
+      text: "A identidade aparece no recorte, na transição e no movimento — sem repetir a logo inteira.",
+      image: "/images/hero/jundu-hero-desktop.webp",
+      alt: "Fotografia do ambiente Jundu vista através da letra J",
+    },
   },
 };
