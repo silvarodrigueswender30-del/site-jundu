@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Superfícies Escuras */
+    --color-forest-900: #0A1A12;
+    --color-forest-800: #0E2419;
+    --color-forest-700: #122E20;
+    --color-forest-600: #1B3F2C;
+    --color-forest-500: #2A5A3E;
+    --color-moss-600: #4A5F3A;
+
+    /* Superfícies Claras */
+    --color-background: #F4EEE1;
+    --color-surface: #EBE2CF;
+    --color-border: #DED3BC;
+
+    /* Marca e Ação */
+    --color-primary: #A9C83E;
+    --color-primary-hover: #93B232;
+    --color-lime-200: #D3E39A;
+    --color-sage-300: #C9D9A2;
+
+    /* Textos */
+    --color-text-primary: #14201A;
+    --color-text-secondary: #3F4F45;
+    --color-text-muted: #6B7A70;
+
+    /* Acentos */
+    --color-accent-amber: #E0A33C;
+    --color-accent-blossom: #E4498C;
+    --color-accent-violet: #6E4E9A;
+    --color-accent-sea: #6F9BA8;
+
+    /* Estados */
+    --color-success: #4C8C5A;
+    --color-error: #B3452F;
+    --color-warning: #B87A22;
+
+    /* Overlays e Scrims */
+    --color-overlay-dark: rgba(10, 26, 18, 0.7);
+    --color-overlay-light: rgba(244, 238, 225, 0.5);
+
+    /* Tipografia Fluid (Clamp) */
+    --text-display: clamp(3rem, 5vw + 1rem, 6rem);
+    --text-h1: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+    --text-h2: clamp(2rem, 3vw + 1rem, 3.5rem);
+    --text-h3: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+    --text-h4: clamp(1.5rem, 2vw + 1rem, 2rem);
+    --text-h5: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
+    --text-h6: 1.125rem;
+    --text-body-large: 1.125rem;
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+    --text-caption: 0.75rem;
+    --text-eyebrow: 0.875rem;
+
+    /* Line Heights & Tracking */
+    --leading-tight: 1.1;
+    --leading-base: 1.5;
+    --tracking-tighter: -0.04em;
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0em;
+    --tracking-wide: 0.05em;
+    --tracking-widest: 0.1em;
+
+    /* Espaçamento (Semântico) */
+    --spacing-container: 1320px;
+    --spacing-gutter: clamp(16px, 4vw, 32px);
+    --spacing-section-sm: clamp(32px, 5vw, 64px);
+    --spacing-section-md: clamp(64px, 8vw, 120px);
+    --spacing-section-lg: clamp(80px, 10vw, 160px);
+    --spacing-gap-grid: 24px;
+    --spacing-gap-card: 16px;
+    --spacing-inner-padding: 24px;
+
+    /* Raios */
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --radius-card: 16px;
+    --radius-pill: 999px;
+
+    /* Motion */
+    --motion-instant: 120ms;
+    --motion-fast: 200ms;
+    --motion-base: 320ms;
+    --motion-editorial: 640ms;
+    --motion-cinematic: 900ms;
+    --easing-main: cubic-bezier(.22, 1, .36, 1);
+    --easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --stagger-delay: 80ms;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-synthesis: none;
+    line-height: var(--leading-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: normal;
+    line-height: var(--leading-tight);
+    color: var(--color-forest-900);
+  }
+}
