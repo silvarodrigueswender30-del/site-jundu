@@ -16,7 +16,7 @@ export const siteData = {
     { label: "Experiência", href: "#experiencia" },
     { label: "História", href: "#historia" },
     { label: "Unidades", href: "#unidades" },
-    { label: "Eventos", href: "#reserva" },
+    { label: "Eventos", href: "#eventos" },
   ],
   ctas: {
     primary: { label: "Conheça nossas unidades", href: "#unidades" },
@@ -177,6 +177,42 @@ export const siteData = {
       text: "A identidade aparece no recorte, na transição e no movimento — sem repetir a logo inteira.",
       image: "/images/hero/jundu-hero-desktop.webp",
       alt: "Fotografia do ambiente Jundu vista através da letra J",
+    },
+    eventsShowcase: {
+      eyebrow: "CELEBRAÇÕES & ENCONTROS",
+      title: "Eventos que\nganham cenário.",
+      text: "Do encontro íntimo às grandes celebrações, o Grupo Jundu reúne gastronomia, hospitalidade e atmosferas marcantes para transformar cada ocasião em uma experiência.",
+      cta: {
+        label: "PLANEJE SEU EVENTO",
+        href: "#contato"
+      },
+      photo: {
+        src: "/images/stories/story-atmosfera.webp",
+        alt: "Ambiente do Grupo Jundu preparado para receber encontros"
+      },
+      highlight: {
+        prefix: "ATÉ",
+        number: "350",
+        suffix: "PESSOAS",
+        description: "Capacidade divulgada para eventos no Espaço Jundu Gastrobar."
+      },
+      modalities: [
+        {
+          id: "01",
+          title: "CASAMENTOS",
+          description: "Celebrações com identidade, gastronomia e a paisagem de Ubatuba por perto."
+        },
+        {
+          id: "02",
+          title: "EVENTOS CORPORATIVOS",
+          description: "Estrutura para encontros, confraternizações e experiências de marca."
+        },
+        {
+          id: "03",
+          title: "ANIVERSÁRIOS & CELEBRAÇÕES",
+          description: "Momentos especiais conduzidos com cuidado em cada detalhe."
+        }
+      ]
     },
     locations: {
       eyebrow: "UBATUBA, TRÊS EXPERIÊNCIAS",

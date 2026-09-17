@@ -9,6 +9,7 @@ import { VerticalStories } from "@/components/sections/vertical-stories";
 import { ArchitecturalGallery } from "@/components/sections/architectural-gallery";
 import { JWindow } from "@/components/sections/j-window";
 import { LocationsAccordion } from "@/components/sections/locations-accordion";
+import { EventsShowcase } from "@/components/sections/events-showcase";
 import { KitchenToScreen } from "@/components/sections/kitchen-to-screen";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SiteFooter } from "@/components/navigation/site-footer";
@@ -29,6 +30,7 @@ export default function Home() {
         <ArchitecturalGallery />
         <JWindow />
         <LocationsAccordion />
+        <EventsShowcase />
         <KitchenToScreen />
         <FinalCta />
       </main>
