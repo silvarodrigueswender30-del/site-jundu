@@ -1,9 +1,14 @@
-import type { SVGProps } from "react";
+import React from 'react';
+import { BrandTexture, BrandTextureProps } from './brand-texture';
 
-export function TerritoryTexture({ className, ...props }: SVGProps<SVGSVGElement>) {
+export function TerritoryTexture({ className, opacity = "subtle", ...props }: React.ComponentProps<"div"> & { opacity?: BrandTextureProps["opacity"] }) {
   return (
-    <svg viewBox="0 0 1000 720" aria-hidden="true" className={className} {...props}>
-      <path fill="currentColor" fillRule="evenodd" d="M1000 0H552c-8 96-4 157-58 198-42 32-95 31-119 83-28 61 44 72 78 110 35 39 15 86-26 119-59 48-107 94-134 210H1000V0Zm-368 0c-3 70 8 125-25 170-31 43-83 52-91 102-7 43 36 65 53 101 28 60 1 115-41 160-43 46-66 102-74 187h58c10-70 34-117 77-157 50-47 83-109 55-179-18-44-61-72-51-113 12-47 67-58 96-101 31-46 27-101 29-170h-86Zm180 0c-4 89-19 147-70 188-47 38-67 74-47 123 17 42 56 69 48 118-9 55-63 82-90 128-26 45-37 95-40 163h59c4-54 15-94 39-128 34-48 88-79 94-143 5-55-33-90-53-130-20-40 0-66 43-101 58-47 78-110 84-218h-17Z" />
-    </svg>
+    <BrandTexture
+      variant="territory"
+      tone="forest"
+      opacity={opacity}
+      className={className}
+      {...props}
+    />
   );
 }

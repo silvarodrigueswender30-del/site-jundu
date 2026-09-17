@@ -1,38 +1,49 @@
-import type { ComponentProps } from "react";
-import { BambooTexture } from "./bamboo-texture";
-import { RootTexture } from "./root-texture";
-import { TerritoryTexture } from "./territory-texture";
+import React from 'react';
 
-type BrandTextureProps = Omit<ComponentProps<"div">, "children"> & {
+export type BrandTextureProps = {
   variant: "territory" | "bamboo" | "roots";
-  tone?: "forest" | "cream" | "sand";
-  opacity?: "subtle" | "soft" | "visible";
+  tone?: "forest" | "cream" | "sand" | "pink";
+  opacity?: "subtle" | "soft" | "visible" | number;
+  className?: string;
 };
 
-const tones = {
-  forest: "text-forest-700",
-  cream: "text-surface",
-  sand: "text-accent-amber",
+const toneMap: Record<string, string> = {
+  forest: "var(--color-forest-700)",
+  cream: "var(--color-background)",
+  sand: "var(--color-surface)",
+  pink: "var(--color-accent-blossom)"
 };
 
-const opacities = {
-  subtle: "opacity-[var(--texture-opacity-subtle)]",
-  soft: "opacity-[var(--texture-opacity-soft)]",
-  visible: "opacity-[var(--texture-opacity-visible)]",
+const variantMap: Record<string, string> = {
+  roots: "/brand/textures/restinga.svg",
+  bamboo: "/brand/textures/bamboo.svg",
+  territory: "/brand/textures/territory.svg"
 };
 
-export function BrandTexture({ variant, tone = "forest", opacity = "soft", className = "", ...props }: BrandTextureProps) {
-  const textureClassName = `h-full w-full ${tones[tone]}`;
+const opacityMap: Record<string, string> = {
+  subtle: "var(--texture-opacity-subtle)",
+  soft: "var(--texture-opacity-soft)",
+  visible: "var(--texture-opacity-visible)"
+};
+
+export function BrandTexture({ variant, tone = "forest", opacity = "soft", className = "" }: BrandTextureProps) {
+  const imageUrl = variantMap[variant];
+  const color = toneMap[tone] || toneMap.forest;
+  
+  let opacityValue: number | string = opacity;
+  if (typeof opacity === "string" && opacityMap[opacity]) {
+    opacityValue = opacityMap[opacity];
+  }
 
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none select-none ${opacities[opacity]} ${className}`}
-      {...props}
-    >
-      {variant === "territory" && <TerritoryTexture className={textureClassName} />}
-      {variant === "bamboo" && <BambooTexture className={textureClassName} />}
-      {variant === "roots" && <RootTexture className={textureClassName} />}
-    </div>
+      className={`brand-texture ${className}`}
+      style={{
+        "--texture-image": `url('${imageUrl}')`,
+        "--texture-color": color,
+        opacity: opacityValue
+      } as React.CSSProperties}
+    />
   );
 }
