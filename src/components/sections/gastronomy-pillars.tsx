@@ -32,49 +32,29 @@ export function GastronomyPillars() {
         </div>
 
         {/* Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-4 lg:gap-8 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:320ms]">
+        <div className="flex flex-col md:flex-row gap-4 lg:gap-6 h-auto md:h-[400px] lg:h-[500px] xl:h-[580px] animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:320ms]">
           
           {/* Main Image */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-6 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] relative rounded-xl overflow-hidden group">
+          <div className="w-full md:w-[58.333%] h-[400px] sm:h-[480px] md:h-full relative rounded-xl overflow-hidden group">
             <Image
               src={data.gallery.main.src}
               alt={data.gallery.main.alt}
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 58vw"
             />
           </div>
 
-          {/* Secondary Images Container */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-6 grid grid-cols-2 gap-4 lg:gap-8 lg:flex lg:flex-col justify-between">
-            {/* Secondary Top */}
-            <div className="relative w-full aspect-square lg:h-[calc(50%-16px)] rounded-xl overflow-hidden group">
-              <Image
-                src={data.gallery.secondaryTop.src}
-                alt={data.gallery.secondaryTop.alt}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
-            
-            {/* Secondary Bottom (Cocktail placeholder) */}
-            <div className="relative w-full aspect-square lg:h-[calc(50%-16px)] rounded-xl overflow-hidden bg-forest-900/5 group flex items-center justify-center">
-              {/* TODO: substituir por fotografia oficial da coquetelaria Jundu. */}
-              {data.gallery.secondaryBottom.src ? (
-                <Image
-                  src={data.gallery.secondaryBottom.src}
-                  alt={data.gallery.secondaryBottom.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              ) : (
-                <span className="text-forest-900/30 font-body text-[13px] uppercase tracking-widest text-center px-4 leading-[1.6]">
-                  Coquetelaria<br/>(Visual Provisório)
-                </span>
-              )}
-            </div>
+          {/* Secondary Image */}
+          <div className="w-full md:w-[41.666%] h-[400px] sm:h-[480px] md:h-full relative rounded-xl overflow-hidden group">
+            {/* TODO: incorporar fotografia oficial da coquetelaria Jundu quando o asset for fornecido. */}
+            <Image
+              src={data.gallery.secondaryTop.src}
+              alt={data.gallery.secondaryTop.alt}
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              sizes="(max-width: 768px) 100vw, 42vw"
+            />
           </div>
         </div>
 

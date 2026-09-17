@@ -194,10 +194,6 @@ export const siteData = {
         secondaryTop: {
           src: "/images/stories/story-atendimento.webp",
           alt: "Momento de serviço e hospitalidade"
-        },
-        secondaryBottom: {
-          src: "", // Placeholder
-          alt: ""
         }
       },
       pillars: [
