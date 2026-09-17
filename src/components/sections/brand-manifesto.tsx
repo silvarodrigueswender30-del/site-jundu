@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { siteData } from "@/data/site";
-import { RootArtworkSlot } from "@/components/brand/root-artwork-slot";
+import { TerritoryArtwork } from "@/components/brand/artwork/territory-artwork";
 
 export function BrandManifesto() {
   const data = siteData.brandManifesto;
@@ -12,6 +12,7 @@ export function BrandManifesto() {
       id="essencia"
       className="bg-background relative w-full overflow-hidden py-[80px] lg:py-[124px]"
     >
+      <TerritoryArtwork composition="soft" />
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-[42%_58%] items-center gap-8 lg:gap-0 relative z-10">
         
         {/* Text Column (42%) */}
@@ -40,10 +41,8 @@ export function BrandManifesto() {
           </Link>
         </div>
 
-        {/* Artwork Column (58%) */}
-        <div className="hidden lg:block w-full mt-3 sm:mt-6 lg:mt-0 lg:-ml-4 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:400ms]">
-          <RootArtworkSlot />
-        </div>
+        {/* Empty Column to preserve Grid (58%) */}
+        <div className="hidden lg:block w-full"></div>
         
       </div>
     </section>
