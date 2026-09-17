@@ -34,6 +34,14 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-ui: var(--font-ui);
+
+  --texture-opacity-subtle: 0.03;
+  --texture-opacity-soft: 0.05;
+  --texture-opacity-visible: 0.08;
+
+  --texture-scale-sm: 160px;
+  --texture-scale-md: 320px;
+  --texture-scale-lg: 640px;
 }
 
 @theme inline {

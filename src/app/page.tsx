@@ -1,6 +1,8 @@
 import { SiteHeader } from "@/components/navigation/site-header";
 import { StickyMobileCTA } from "@/components/navigation/sticky-mobile-cta";
 import { HeroCinematic } from "@/components/sections/hero-cinematic";
+import { BrandManifesto } from "@/components/sections/brand-manifesto";
+import { BrandTimeline } from "@/components/sections/brand-timeline";
 import { EditorialIntro } from "@/components/sections/editorial-intro";
 import { VerticalStories } from "@/components/sections/vertical-stories";
 import { ArchitecturalGallery } from "@/components/sections/architectural-gallery";
@@ -17,6 +19,8 @@ export default function Home() {
       
       <main className="min-h-screen overflow-x-hidden">
         <HeroCinematic />
+        <BrandManifesto />
+        <BrandTimeline />
         <EditorialIntro />
         <VerticalStories />
         

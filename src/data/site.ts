@@ -14,15 +14,64 @@ export const siteData = {
   units: ["Itaguá", "Prumirim", "Praia Grande"],
   navigation: [
     { label: "Experiência", href: "#experiencia" },
+    { label: "História", href: "#historia" },
     { label: "Unidades", href: "#unidades" },
-    { label: "Gastronomia", href: "#gastronomia" },
     { label: "Eventos", href: "#reserva" },
-    { label: "Contato", href: "#contato" },
   ],
   ctas: {
     primary: { label: "Conheça nossas unidades", href: "#unidades" },
     reserve: { label: "Reservar", href: "#reserva" },
     video: { label: "Assistir à experiência" },
+  },
+  brandManifesto: {
+    eyebrow: "ORIGEM & TERRITÓRIO",
+    title: "Onde a praia\ncria raízes.",
+    paragraphs: [
+      "Jundu é o nome de uma vegetação nativa que cresce junto à areia, resiste ao vento e ajuda a proteger o litoral. Foi dessa relação entre natureza, território e cultura caiçara que nasceu a identidade do Grupo Jundu.",
+      "Uma marca criada em Ubatuba para transformar ingredientes, arquitetura, encontros e paisagem em experiências que carregam a essência do lugar."
+    ],
+    historyLabel: "CONHEÇA A NOSSA HISTÓRIA",
+    historyHref: "#historia",
+    rootArtwork: undefined,
+  },
+  brandTimeline: {
+    eyebrow: "DESDE 2013",
+    title: "Uma história que\ncomeçou na praia.",
+    description: "Do primeiro Praia Bar em Prumirim a um grupo com diferentes experiências em Ubatuba, o Jundu cresceu sem perder a ligação com a cultura caiçara, a natureza e o desejo de receber bem.",
+    milestones: [
+      {
+        marker: "2013",
+        title: "Praia Bar Prumirim",
+        description: "Gilberto Eustáquio e Daniela Costa inauguram o primeiro Jundu em 13 de novembro, levando para o quiosque a cultura caiçara, a arquitetura natural e a relação com a praia.",
+        image: "/images/stories/story-atmosfera.webp",
+        alt: "Prumirim",
+        objectPosition: "center 40%"
+      },
+      {
+        marker: "EXPANSÃO",
+        title: "Lounge Bar Itaguá",
+        description: "O bairro do Itaguá recebe o primeiro restaurante do grupo. A chef Maria Eustáquio assume a cozinha, unindo sofisticação e culinária caiçara.",
+        image: "/images/editorial/gastronomia-provisoria.webp",
+        alt: "Lounge Bar Itaguá",
+        objectPosition: "center center"
+      },
+      {
+        marker: "2021",
+        title: "Espaço Jundu Gastrobar",
+        description: "O maior restaurante do grupo nasce na Praia Grande. O chef Fabio Eustáquio combina técnicas asiáticas e ingredientes brasileiros em uma nova expressão gastronômica.",
+        image: "/images/stories/story-gastronomia.webp",
+        alt: "Espaço Jundu Gastrobar na Praia Grande",
+        objectPosition: "center center"
+      },
+      {
+        marker: "200+",
+        title: "Pessoas, uma mesma essência",
+        description: "O Grupo Jundu passa a reunir mais de 200 colaboradores com o propósito de fazer cada visitante sair melhor e mais feliz do que entrou.",
+        image: "/images/stories/story-atendimento.webp",
+        alt: "Equipe do Jundu",
+        objectPosition: "center 30%"
+      }
+    ]
   },
   sections: {
     editorial: {
