@@ -12,10 +12,10 @@ export function BrandManifesto() {
       id="essencia"
       className="bg-background relative w-full overflow-hidden py-[80px] lg:py-[124px]"
     >
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-[42%_58%] items-center gap-8 lg:gap-0 relative z-10">
         
         {/* Text Column (42%) */}
-        <div className="w-full lg:w-[42%] flex flex-col items-start text-left">
+        <div className="w-full flex flex-col items-start text-left relative z-10">
           <span className="font-body text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-moss-600 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
             {data.eyebrow}
           </span>
@@ -41,7 +41,7 @@ export function BrandManifesto() {
         </div>
 
         {/* Artwork Column (58%) */}
-        <div className="w-full lg:w-[58%] mt-8 lg:mt-0 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:400ms]">
+        <div className="w-full mt-3 sm:mt-6 lg:mt-0 lg:-ml-4 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:400ms]">
           <RootArtworkSlot artwork={data.rootArtwork} />
         </div>
         

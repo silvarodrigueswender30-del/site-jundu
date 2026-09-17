@@ -1,56 +1,67 @@
-# Brand Texture System (Work In Progress)
+# Sistema de texturas da marca Jundu
 
-Este documento descreve as quatro famílias do sistema de texturas da marca Jundu. Os assets visuais definitivos estão em desenvolvimento. Não aplique SVG provisórios que tentem simular o resultado final.
+O sistema visual aprovado possui três famílias complementares. A máscara fotográfica foi descartada. As referências raster em `ARQUIVOS/testuras/` são matrizes de direção de arte; a interface usa componentes SVG, nunca os JPEGs como fundos finais.
 
-## 1. ROOT NETWORK
-* **Representa:** Raízes do jundu, origem, resistência, proteção, conexão e crescimento.
-* **Formas sugeridas:** Linhas orgânicas contínuas, nós naturais, entrelaçamento botânico (sem cair para o folclore excessivo).
-* **Superfícies recomendadas:** Áreas de hero, fundos de seções manifesto, espaços reservados (`root-artwork-slot`).
-* **Superfícies proibidas:** Sobre fotos de pratos, rostos de colaboradores, ou blocos de texto muito densos.
-* **Opacidade:** `--texture-opacity-subtle` a `--texture-opacity-visible` dependendo do contraste com o fundo.
-* **Escala:** `--texture-scale-lg` (640px) ou maior, permitindo vazamento intencional (overflow).
-* **Comportamento mobile:** Cortar e reposicionar. A textura não deve ser escalonada de forma que os traços fiquem muito finos e percam presença.
-* **Motion:** Revelação lenta em fade ou traçado SVG (`stroke-dashoffset`). Nenhuma animação contínua (loop).
-* **Acessibilidade:** Não deve interferir na legibilidade de textos sobrepostos.
-* **Performance:** Sempre priorizar SVG in-line ou WebP otimizado (se usar raster).
-* **Risco de uso excessivo:** Muito alto. Usar em poucas seções para preservar o impacto do significado de "raiz".
+## Hierarquia
 
-## 2. PETAL CONSTELLATION
-* **Representa:** Florescimento, pessoas, unidades, encontros, a assinatura abstrata da marca.
-* **Restrição importante:** Não deve repetir literalmente a flor da logo. Deve ser uma abstração (ex: pétalas soltas ou composição fluida).
-* **Formas sugeridas:** Formas geométricas suaves, ovais assimétricos, agrupamentos orgânicos.
-* **Superfícies recomendadas:** Menus, seções secundárias de conteúdo (como a área de histórias), backgrounds de citação.
-* **Superfícies proibidas:** Footer institucional, header fixo.
-* **Opacidade:** `--texture-opacity-soft` (0.05).
-* **Escala:** `--texture-scale-sm` a `--texture-scale-md`.
-* **Comportamento mobile:** Pode ser suprimida ou usada com corte acentuado.
-* **Motion:** Parallax sutil ao scroll (usando transform/translate) ou aparecimento progressivo.
-* **Acessibilidade:** Altíssimo contraste necessário para textos em cima, já que pétalas podem criar áreas de brilho/sombra.
-* **Performance:** Excelente, baixo impacto se for CSS pattern ou SVG leve.
-* **Risco de uso excessivo:** Moderado. Pode virar um "confete" se usado sem intencionalidade.
+| Família | Frequência | Construção | Papel |
+| --- | ---: | --- | --- |
+| Território por Ausência | 70% | formas preenchidas e canais vazados | assinatura principal e transições |
+| Arquitetura Enraizada | 20% | linhas orgânicas que se tornam trama | arquitetura e superfícies verdes |
+| Trama de Restinga | 10% | linhas finas e poucos nós | manifesto, sustentabilidade e footer |
 
-## 3. WOVEN CEILING
-* **Representa:** Teto tramado, bambu, cestaria, arquitetura do quiosque original, abrigo, acolhimento.
-* **Formas sugeridas:** Tramas cruzadas, padrões geométricos naturais, linhas paralelas com leve irregularidade orgânica.
-* **Superfícies recomendadas:** Blocos escuros, seção de arquitetura, CTA final, áreas de hospitalidade.
-* **Superfícies proibidas:** Hero cinematic, áreas de Manifesto.
-* **Opacidade:** `--texture-opacity-visible` (0.08) em fundos escuros (Forest 900).
-* **Escala:** `--texture-scale-md` (320px). Deve formar um padrão (pattern).
-* **Comportamento mobile:** Escalável sem perda de significado, pois é um pattern geométrico.
-* **Motion:** Nenhum. A arquitetura é estática, transmitindo solidez e abrigo.
-* **Acessibilidade:** Pode poluir visualmente se usado como background de textos pequenos.
-* **Performance:** Muito leve, ideal para `background-image` repetido (CSS).
-* **Risco de uso excessivo:** Baixo/Moderado. É uma textura de preenchimento, mas não deve competir com as fotos dos ambientes.
+Os percentuais indicam frequência visual, não opacidade.
 
-## 4. TIDAL CONTOURS
-* **Representa:** Maré, linha do litoral, topografia, movimento, fluidez, território.
-* **Formas sugeridas:** Linhas isométricas de mapa topográfico (simplificadas), ondas concêntricas, faixas de maré.
-* **Superfícies recomendadas:** Timeline, seções de expansão do grupo e unidades.
-* **Superfícies proibidas:** Áreas focadas apenas em gastronomia ou no interior dos restaurantes.
-* **Opacidade:** `--texture-opacity-subtle` (0.03). Muito discreto.
-* **Escala:** `--texture-scale-lg` (640px) ou superior. Linhas grandes e espaçadas.
-* **Comportamento mobile:** Exibir apenas uma ou duas faixas/contornos.
-* **Motion:** Movimento quase imperceptível ao scroll (parallax lento).
-* **Acessibilidade:** Seguro, pois usa linhas finas e opacidade muito baixa.
-* **Performance:** Moderado se usar múltiplos paths SVG grandes.
-* **Risco de uso excessivo:** Alto se as ondas/linhas cruzarem botões e links, quebrando a geometria da interface.
+## Território por Ausência
+
+- Componente: `territory-texture.tsx`.
+- Usar em transições, CTA, unidades e blocos institucionais.
+- Manter o espaço negativo à esquerda para conteúdo editorial.
+- Creme: verde-floresta em baixa opacidade.
+- Verde: creme ou âmbar em baixa opacidade.
+- Não usar como máscara fotográfica.
+
+## Arquitetura Enraizada
+
+- Componente: `bamboo-texture.tsx`.
+- Usar prioritariamente na galeria arquitetônica e, de forma pontual, em superfícies verdes.
+- O desenho deve permanecer aberto, com poucos cruzamentos e traço fino.
+- Nunca competir com fotografias ou textos pequenos.
+- Não possui movimento contínuo.
+
+## Trama de Restinga
+
+- Componente: `root-texture.tsx`.
+- Aplicação principal: seção “Onde a praia cria raízes”.
+- Mostrar fragmentos ampliados e recortados; nunca o desenho completo e centralizado.
+- Nós em rosa funcionam como acento da marca e devem permanecer escassos.
+- Pode reaparecer em sustentabilidade e footer com opacidade inferior à aplicação do Manifesto.
+
+## Tokens
+
+```css
+--texture-opacity-subtle: 0.03;
+--texture-opacity-soft: 0.05;
+--texture-opacity-visible: 0.08;
+
+--texture-scale-sm: 160px;
+--texture-scale-md: 320px;
+--texture-scale-lg: 640px;
+```
+
+## Regras técnicas
+
+- SVG decorativo com `aria-hidden="true"`.
+- `pointer-events: none` e `user-select: none`.
+- A seção controla o recorte com `overflow: hidden`.
+- A textura nunca altera a altura ou a largura do layout.
+- Cor baseada em `currentColor` e tokens do Design System.
+- Recortes diferentes para desktop e mobile; não apenas redução proporcional.
+- Sem loops de animação. Quando houver entrada, respeitar `prefers-reduced-motion`.
+- Preservar áreas completamente limpas entre as aplicações.
+
+## Estado de implantação
+
+- Trama de Restinga: aplicada ao Manifesto.
+- Território por Ausência: componente pronto, aguardando validação antes da primeira aplicação.
+- Arquitetura Enraizada: componente pronto, aguardando validação antes da primeira aplicação.

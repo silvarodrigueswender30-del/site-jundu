@@ -1,4 +1,4 @@
-import React from 'react';
+import { RootTexture } from "@/components/brand/textures/root-texture";
 
 export interface RootArtworkProps {
   lightSrc?: string;
@@ -7,16 +7,21 @@ export interface RootArtworkProps {
   opacity?: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function RootArtworkSlot({ artwork }: { artwork?: RootArtworkProps }) {
-  // Arte botânica definitiva pendente de curadoria.
-  // Não substituir por ilustração genérica.
+  void artwork;
+
   return (
-    <div 
-      className="relative w-full h-[280px] sm:h-[380px] lg:h-[495px] flex items-center justify-center overflow-hidden z-10"
-      data-artwork="pending-root-curation"
+    <div
+      className="relative h-[250px] w-full overflow-hidden sm:h-[360px] lg:h-[540px]"
+      data-artwork="root-network-approved"
     >
-      {/* Espaço negativo intencional preparado para o SVG futuro */}
+      <RootTexture
+        className="absolute left-[6%] top-[-18%] h-[142%] w-[142%] max-w-none text-forest-700 opacity-[0.26] sm:left-0 sm:top-[-13%] sm:h-[132%] sm:w-[132%] lg:left-[-4%] lg:top-[-10%] lg:h-[125%] lg:w-[125%]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent"
+      />
     </div>
   );
 }
