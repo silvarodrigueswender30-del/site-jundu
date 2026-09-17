@@ -11,6 +11,7 @@ import { ArchitecturalGallery } from "@/components/sections/architectural-galler
 import { JWindow } from "@/components/sections/j-window";
 import { LocationsAccordion } from "@/components/sections/locations-accordion";
 import { EventsShowcase } from "@/components/sections/events-showcase";
+import { NatureCommitment } from "@/components/sections/nature-commitment";
 import { KitchenToScreen } from "@/components/sections/kitchen-to-screen";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SiteFooter } from "@/components/navigation/site-footer";
@@ -33,6 +34,7 @@ export default function Home() {
         <JWindow />
         <LocationsAccordion />
         <EventsShowcase />
+        <NatureCommitment />
         <KitchenToScreen />
         <FinalCta />
       </main>

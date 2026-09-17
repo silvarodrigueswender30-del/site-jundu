@@ -250,6 +250,29 @@ export const siteData = {
         }
       ]
     },
+    natureCommitment: {
+      eyebrow: "GUARDIÕES DA NATUREZA",
+      title: "Crescer junto ao litoral\né também cuidar dele.",
+      text: "O nome Jundu carrega a memória de uma vegetação nativa essencial para a proteção das praias. Essa relação com o território também orienta escolhas do grupo, que busca unir hospitalidade, responsabilidade social e cuidado com o ambiente.",
+      highlight: "Natureza não é cenário.\nÉ parte da nossa origem.",
+      commitments: [
+        {
+          id: "01",
+          title: "RECICLAGEM",
+          description: "Todas as unidades mantêm um processo de organização e encaminhamento de resíduos para reciclagem."
+        },
+        {
+          id: "02",
+          title: "TERRITÓRIO",
+          description: "A cultura caiçara, a paisagem e a vegetação costeira fazem parte da origem e da identidade do Jundu."
+        },
+        {
+          id: "03",
+          title: "RESPONSABILIDADE",
+          description: "O grupo declara o compromisso de contribuir continuamente para o desenvolvimento sustentável da economia local."
+        }
+      ]
+    },
     locations: {
       eyebrow: "UBATUBA, TRÊS EXPERIÊNCIAS",
       title: "Três unidades.\nTrês atmosferas.",
