@@ -96,7 +96,7 @@ export function EditorialIntro() {
             {/* O max-width foi ampliado para ~11.5ch para forçar exatamente 3 linhas. 
                 Foi removida a restrição exagerada que forçava 4 linhas. */}
             <h2 
-              className={`text-display-hero text-forest-900 m-0 ${
+              className={`text-title-editorial text-forest-900 m-0 ${
                 shouldAnimate ? "opacity-0 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards]" : showContent ? "opacity-100" : "opacity-0"
               }`}
               style={{ 

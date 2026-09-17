@@ -16,17 +16,17 @@ export function BrandManifesto() {
         
         {/* Text Column (42%) */}
         <div className="w-full flex flex-col items-start text-left relative z-10">
-          <span className="font-body text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-moss-600 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
+          <span className="text-eyebrow text-moss-600 mb-6 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
             {data.eyebrow}
           </span>
           
-          <h2 className="font-display text-forest-900 text-[44px] sm:text-[58px] lg:text-[72px] leading-[0.94] lg:leading-[1] tracking-[-0.02em] max-w-[11ch] whitespace-pre-line mb-8 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms]">
+          <h2 className="text-title-editorial text-forest-900 max-w-[11ch] whitespace-pre-line mb-8 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms]">
             {data.title}
           </h2>
           
           <div className="flex flex-col gap-6 mb-10 max-w-[48ch] animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:240ms]">
             {data.paragraphs.map((p, i) => (
-              <p key={i} className="font-body text-[16px] lg:text-[19px] leading-[1.58] lg:leading-[1.72] text-forest-800">
+              <p key={i} className="text-body-editorial text-forest-800">
                 {p}
               </p>
             ))}
@@ -34,7 +34,7 @@ export function BrandManifesto() {
 
           <Link
             href={data.historyHref}
-            className="font-body text-[14px] uppercase tracking-[0.1em] text-primary hover:text-primary-hover font-bold transition-colors animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:320ms] border-b border-primary pb-1"
+            className="text-eyebrow text-primary hover:text-primary-hover transition-colors animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:320ms] border-b border-primary pb-1"
           >
             {data.historyLabel}
           </Link>

@@ -25,7 +25,7 @@ export function HeroCinematic() {
             className="font-display text-surface mb-8 drop-shadow-lg opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
             style={{ 
               animationDelay: '180ms',
-              fontSize: 'clamp(2.65rem, 10vw, 6.75rem)', // Scaled down mobile a bit, big desktop
+              fontSize: 'clamp(2.65rem, 10vw, 6.75rem)',
               lineHeight: 0.92,
               letterSpacing: '-0.035em',
               fontWeight: 400,

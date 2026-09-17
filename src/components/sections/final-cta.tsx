@@ -50,7 +50,7 @@ export function FinalCta() {
       <div className="w-full max-w-[1320px] mx-auto px-6 lg:px-8 flex flex-col items-center text-center">
         
         <h2 
-          className={`text-display-hero text-surface m-0 mb-6 transition-all duration-[1000ms] ${
+          className={`text-title-editorial text-surface m-0 mb-6 transition-all duration-[1000ms] ${
             shouldAnimate
               ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
               : showContent ? "opacity-100" : "opacity-0"

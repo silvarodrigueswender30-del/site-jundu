@@ -16,15 +16,15 @@ export function BrandTimeline() {
         {/* Header */}
         <div className="mb-16 lg:mb-24 flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between">
           <div className="flex flex-col">
-            <span className="font-body text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-lime-200 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
+            <span className="block text-eyebrow text-lime-200 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
               {data.eyebrow}
             </span>
-            <h2 className="font-display text-surface text-[44px] sm:text-[58px] lg:text-[72px] leading-[0.94] lg:leading-[1] tracking-[-0.02em] whitespace-pre-line animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms]">
+            <h2 className="text-title-editorial text-surface whitespace-pre-line animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms]">
               {data.title}
             </h2>
           </div>
           <div className="lg:w-[45%] lg:pt-8 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:240ms]">
-            <p className="font-body text-[16px] lg:text-[19px] leading-[1.58] lg:leading-[1.72] text-sage-300 max-w-[48ch]">
+            <p className="text-body-editorial text-sage-300 max-w-[48ch]">
               {data.description}
             </p>
           </div>
@@ -48,27 +48,28 @@ export function BrandTimeline() {
                 {/* Marker / Ponto Mobile */}
                 <div className="lg:hidden w-3 h-3 rounded-full bg-lime-200 absolute top-[12px] -left-[6.5px] z-10"></div>
                 
-                <div className="font-display text-lime-200 text-[28px] lg:text-[32px] mb-4 lg:mb-6 lg:mt-12 lg:px-6">
+                <div className="text-title-block text-lime-200 mb-4 lg:mb-6 lg:mt-12 lg:px-6">
                   {milestone.marker}
                 </div>
                 
                 {milestone.image && (
-                  <div className="w-full aspect-[4/3] relative rounded-[12px] overflow-hidden mb-6 lg:mx-6 lg:w-[calc(100%-48px)]">
-                    <Image 
-                      src={milestone.image} 
-                      alt={milestone.alt || ""}
+                  <div className="relative w-full aspect-[4/3] mb-6 rounded-[12px] overflow-hidden lg:mx-6 lg:w-[calc(100%-48px)]">
+                    <Image
+                      src={milestone.image}
+                      alt={milestone.title}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
                       style={{ objectPosition: milestone.objectPosition }}
                     />
                   </div>
                 )}
                 
-                <h3 className="font-body font-bold text-surface text-[20px] mb-3 lg:px-6">
+                <h3 className="text-body-editorial font-bold text-surface mb-3 lg:px-6">
                   {milestone.title}
                 </h3>
                 
-                <p className="font-body text-sage-300 text-[16px] leading-[1.58] lg:px-6">
+                <p className="text-body-aux text-sage-300 lg:px-6">
                   {milestone.description}
                 </p>
               </div>

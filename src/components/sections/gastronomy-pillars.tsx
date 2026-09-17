@@ -17,15 +17,15 @@ export function GastronomyPillars() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
           <div className="w-full lg:w-[42%]">
-            <span className="block font-body text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-moss-600 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
+            <span className="block text-eyebrow text-moss-600 mb-6 font-semibold animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:80ms]">
               {data.eyebrow}
             </span>
-            <h2 className="font-display text-forest-900 text-[42px] sm:text-[48px] lg:text-[64px] xl:text-[76px] leading-[0.96] tracking-[-0.02em] whitespace-pre-line animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms] max-w-[15ch]">
+            <h2 className="text-title-editorial text-forest-900 whitespace-pre-line animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:160ms] max-w-[15ch]">
               {data.title}
             </h2>
           </div>
           <div className="w-full lg:w-[42%] lg:pb-2">
-            <p className="font-body text-[16px] lg:text-[19px] leading-[1.58] lg:leading-[1.72] text-forest-800 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:240ms]">
+            <p className="text-body-editorial text-forest-800 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:240ms]">
               {data.text}
             </p>
           </div>
@@ -65,10 +65,10 @@ export function GastronomyPillars() {
               <span className="font-display text-[18px] lg:text-[20px] text-moss-600">
                 {pillar.id}
               </span>
-              <h3 className="font-display text-[24px] lg:text-[28px] leading-[1.2] text-forest-900">
+              <h3 className="text-title-block text-forest-900">
                 {pillar.title}
               </h3>
-              <p className="font-body text-[15px] lg:text-[16px] text-forest-800 leading-[1.6]">
+              <p className="text-body-aux text-forest-800">
                 {pillar.description}
               </p>
             </li>
@@ -79,7 +79,7 @@ export function GastronomyPillars() {
         <div className="mt-4 lg:mt-8 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:480ms]">
           <Link
             href={data.cta.href}
-            className="font-body text-[14px] uppercase tracking-[0.1em] text-primary hover:text-primary-hover font-bold transition-colors border-b border-primary pb-1 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+            className="text-eyebrow text-primary hover:text-primary-hover transition-colors border-b border-primary pb-1 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
           >
             {data.cta.label}
           </Link>
