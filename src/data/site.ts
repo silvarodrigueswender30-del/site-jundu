@@ -178,6 +178,46 @@ export const siteData = {
       image: "/images/hero/jundu-hero-desktop.webp",
       alt: "Fotografia do ambiente Jundu vista através da letra J",
     },
+    gastronomyPillars: {
+      eyebrow: "GASTRONOMIA & COQUETELARIA",
+      title: "Da origem\nao copo.",
+      text: "A cozinha do Jundu nasce da cultura caiçara e se abre para novas técnicas, ingredientes e encontros. Dos pratos autorais à coquetelaria, cada criação procura traduzir Ubatuba sem limitar sua expressão.",
+      cta: {
+        label: "CONHEÇA NOSSAS UNIDADES",
+        href: "#unidades"
+      },
+      gallery: {
+        main: {
+          src: "/images/editorial/gastronomia-provisoria.webp",
+          alt: "Detalhe da alta gastronomia com ingredientes locais"
+        },
+        secondaryTop: {
+          src: "/images/stories/story-atendimento.webp",
+          alt: "Momento de serviço e hospitalidade"
+        },
+        secondaryBottom: {
+          src: "", // Placeholder
+          alt: ""
+        }
+      },
+      pillars: [
+        {
+          id: "01",
+          title: "Cultura caiçara",
+          description: "A relação com o mar, a praia e os ingredientes brasileiros permanece como ponto de partida para os sabores do Jundu."
+        },
+        {
+          id: "02",
+          title: "Cozinha em movimento",
+          description: "Maria Eustáquio une sofisticação à culinária caiçara, enquanto Fabio Eustáquio aproxima técnicas asiáticas de ingredientes brasileiros."
+        },
+        {
+          id: "03",
+          title: "Coquetelaria autoral",
+          description: "Frutas, ervas, destilados e referências locais constroem bebidas que acompanham a identidade de cada unidade."
+        }
+      ]
+    },
     eventsShowcase: {
       eyebrow: "CELEBRAÇÕES & ENCONTROS",
       title: "Eventos que\nganham cenário.",
