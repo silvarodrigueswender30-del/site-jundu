@@ -2,11 +2,11 @@ import Link from "next/link";
 import { siteData } from "@/data/site";
 
 export function SiteFooter() {
-  const { footer, navigation } = siteData.sections;
+  const { footer } = siteData.sections;
   const navLinks = siteData.navigation;
   
   return (
-    <footer className="w-full bg-forest-900 border-t border-surface/10 pt-16 pb-8">
+    <footer id="contato" className="w-full bg-forest-900 border-t border-surface/10 pt-16 pb-8">
       <div className="w-full max-w-[1320px] mx-auto px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">

@@ -52,6 +52,7 @@ export function KitchenToScreen() {
   return (
     <section
       ref={sectionRef}
+      id="gastronomia"
       data-section="kitchen-to-screen"
       className="relative w-full bg-background pt-[104px] pb-[112px] lg:pt-[144px] lg:pb-[160px] overflow-hidden"
     >

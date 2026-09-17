@@ -16,7 +16,7 @@ export const siteData = {
     { label: "Experiência", href: "#experiencia" },
     { label: "Unidades", href: "#unidades" },
     { label: "Gastronomia", href: "#gastronomia" },
-    { label: "Eventos", href: "#eventos" },
+    { label: "Eventos", href: "#reserva" },
     { label: "Contato", href: "#contato" },
   ],
   ctas: {

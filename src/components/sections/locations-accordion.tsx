@@ -73,6 +73,7 @@ export function LocationsAccordion() {
   return (
     <section
       ref={sectionRef}
+      id="unidades"
       data-section="locations-accordion"
       className="relative w-full bg-forest-900 pt-[104px] pb-[112px] lg:pt-[144px] lg:pb-[160px] overflow-hidden"
     >
