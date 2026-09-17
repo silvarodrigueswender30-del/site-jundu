@@ -102,5 +102,54 @@ export const siteData = {
       image: "/images/hero/jundu-hero-desktop.webp",
       alt: "Fotografia do ambiente Jundu vista através da letra J",
     },
+    locations: {
+      eyebrow: "UBATUBA, TRÊS EXPERIÊNCIAS",
+      title: "Três unidades.\nTrês atmosferas.",
+      text: "Da praia ao salão, cada endereço traduz o Jundu de uma forma particular — mantendo a mesma essência em cada experiência.",
+      units: [
+        {
+          id: "itagua",
+          name: "Itaguá",
+          description: "O charme e a tradição no coração da cidade.",
+          image: "/images/stories/story-atmosfera.webp",
+          alt: "Ambiente da unidade Jundu Itaguá",
+          objectPosition: "center 40%"
+        },
+        {
+          id: "prumirim",
+          name: "Prumirim",
+          description: "A natureza e o mar se encontram à sua mesa.",
+          image: "/images/stories/story-gastronomia.webp",
+          alt: "Ambiente da unidade Jundu Prumirim",
+          objectPosition: "center center"
+        },
+        {
+          id: "praia-grande",
+          name: "Praia Grande",
+          description: "Energia vibrante em uma das praias mais queridas.",
+          image: "/images/stories/story-atendimento.webp",
+          alt: "Ambiente da unidade Jundu Praia Grande",
+          objectPosition: "center 30%"
+        }
+      ]
+    },
+    finalCta: {
+      title: "Viva essa experiência.",
+      subtitle: "Descubra o sabor e a atmosfera de Ubatuba em nossas unidades.",
+      primaryAction: { label: "Conheça as Unidades", href: "#unidades" },
+      secondaryAction: { label: "Fazer uma Reserva", href: "#reserva" },
+    },
+    footer: {
+      brand: "Jundu Ubatuba",
+      social: [
+        { label: "Instagram", href: "https://instagram.com/junduubatuba" },
+        { label: "Facebook", href: "https://facebook.com/junduubatuba" }
+      ],
+      legal: [
+        { label: "Termos de Uso", href: "#" },
+        { label: "Política de Privacidade", href: "#" }
+      ],
+      credit: "Desenvolvido por Off-Data"
+    }
   },
 };

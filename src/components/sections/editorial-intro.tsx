@@ -43,11 +43,11 @@ export function EditorialIntro() {
   const showContent = isVisible || reducedMotion;
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      data-section="editorial-intro"
-      className="relative w-full bg-surface text-forest-900 pt-[88px] pb-[88px] lg:pt-[112px] lg:pb-[112px] px-6 lg:px-8"
       id="experiencia"
+      data-section="editorial"
+      className="relative w-full bg-surface pt-[104px] pb-[112px] lg:pt-[144px] lg:pb-[160px] overflow-hidden"
     >
       <div className="w-full max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-[88px] items-start">
         

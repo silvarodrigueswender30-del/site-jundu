@@ -5,6 +5,10 @@ import { EditorialIntro } from "@/components/sections/editorial-intro";
 import { VerticalStories } from "@/components/sections/vertical-stories";
 import { ArchitecturalGallery } from "@/components/sections/architectural-gallery";
 import { JWindow } from "@/components/sections/j-window";
+import { LocationsAccordion } from "@/components/sections/locations-accordion";
+import { KitchenToScreen } from "@/components/sections/kitchen-to-screen";
+import { FinalCta } from "@/components/sections/final-cta";
+import { SiteFooter } from "@/components/navigation/site-footer";
 
 export default function Home() {
   return (
@@ -18,12 +22,12 @@ export default function Home() {
         
         <ArchitecturalGallery />
         <JWindow />
-        
-        {/* Placeholder: próxima seção (Três unidades. Três atmosferas.) */}
-        <div className="h-[30vh] bg-surface flex items-center justify-center">
-          <p className="text-text-muted text-sm tracking-widest uppercase">Próxima seção...</p>
-        </div>
+        <LocationsAccordion />
+        <KitchenToScreen />
+        <FinalCta />
       </main>
+      
+      <SiteFooter />
 
       <StickyMobileCTA />
     </>
