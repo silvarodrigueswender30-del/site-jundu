@@ -96,16 +96,12 @@ export function EditorialIntro() {
             {/* O max-width foi ampliado para ~11.5ch para forçar exatamente 3 linhas. 
                 Foi removida a restrição exagerada que forçava 4 linhas. */}
             <h2 
-              className={`font-display text-forest-900 m-0 ${
-                shouldAnimate ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]" : showContent ? "opacity-100" : "opacity-0"
+              className={`text-display-hero text-forest-900 m-0 ${
+                shouldAnimate ? "opacity-0 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards]" : showContent ? "opacity-100" : "opacity-0"
               }`}
               style={{ 
                 animationDelay: '200ms',
-                fontSize: 'clamp(3.5rem, 4.7vw, 4.75rem)', 
-                lineHeight: 1.0, 
-                letterSpacing: '-0.03em',
-                maxWidth: '11.5ch',
-                textWrap: 'balance'
+                maxWidth: '11.5ch'
               }}
             >
               {data.title}
