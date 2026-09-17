@@ -62,6 +62,10 @@ Os percentuais indicam frequência visual, não opacidade.
 
 ## Estado de implantação
 
-- Trama de Restinga: aplicada ao Manifesto.
-- Território por Ausência: componente pronto, aguardando validação antes da primeira aplicação.
-- Arquitetura Enraizada: componente pronto, aguardando validação antes da primeira aplicação.
+**STATUS: aplicação visual temporariamente adiada.**
+
+Os SVGs permanecem como estudos técnicos. Nenhuma textura deve ser aplicada em produção até uma nova validação do método de renderização e fidelidade visual.
+
+- Trama de Restinga: vetorizada, porém removida do Manifesto para auditoria visual.
+- Território por Ausência: vetorizada, aguardando validação.
+- Arquitetura Enraizada: vetorizada, aguardando validação.

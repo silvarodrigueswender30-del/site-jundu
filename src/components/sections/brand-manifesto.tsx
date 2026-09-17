@@ -41,8 +41,8 @@ export function BrandManifesto() {
         </div>
 
         {/* Artwork Column (58%) */}
-        <div className="w-full mt-3 sm:mt-6 lg:mt-0 lg:-ml-4 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:400ms]">
-          <RootArtworkSlot artwork={data.rootArtwork} />
+        <div className="hidden lg:block w-full mt-3 sm:mt-6 lg:mt-0 lg:-ml-4 animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:400ms]">
+          <RootArtworkSlot />
         </div>
         
       </div>
