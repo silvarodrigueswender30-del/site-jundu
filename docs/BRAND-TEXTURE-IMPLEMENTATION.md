@@ -41,7 +41,9 @@ ou opacity da outra.
 - Fonte original: `ARQUIVOS/testuras/bambu.jpeg`
 - Gerador deterministico: `scripts/generate-bamboo-texture.mjs`
 - Mascara aprovada: `public/brand/textures/bamboo-alpha.png` (2752x1536)
-  - Curva Alpha refinada: `blackPoint=0`, `whitePoint=245`, `gamma=0.45` para densidade de linha
+  - Curva alpha: `blackPoint=0`, `whitePoint=245`, `gamma=0.45`
+  - A curva foi mantida porque a matriz original e predominantemente binaria. O
+    refinamento editorial vem do recorte, da area visivel e da intensidade CSS.
 - Componente: `src/components/brand/artwork/bamboo-artwork.tsx`
 - Estilos responsivos: `src/components/brand/artwork/bamboo-artwork.module.css`
 - Secao de uso: `src/components/sections/architectural-gallery.tsx`
@@ -49,22 +51,23 @@ ou opacity da outra.
 
 ### Valores responsivos Bambu
 
-A matriz foi ancorada com peso na lateral direita.
+A matriz usa apenas sua transicao linear mais esparsa como gesto periferico no
+canto superior direito. O nucleo tramado nao deve atravessar a headline.
 
 **Mobile (< 768px)**
-- opacity: 0.09
+- opacity: 0.045
 - mask-size: 900px auto
-- mask-position: 100% 0%
+- mask-position: calc(100% + 760px) -30px
 
 **Tablet (>= 768px)**
-- opacity: 0.09
-- mask-size: 1000px auto
-- mask-position: calc(100% + 80px) 15%
+- opacity: 0.055
+- mask-size: 1100px auto
+- mask-position: calc(100% + 720px) -40px
 
 **Desktop (>= 1024px)**
-- opacity: 0.08
-- mask-size: clamp(900px, 75vw, 1150px) auto
-- mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%
+- opacity: 0.055
+- mask-size: clamp(1350px, 110vw, 1650px) auto
+- mask-position: calc(100% + clamp(700px, 62vw, 900px)) -60px
 
 ## Proximas texturas
 

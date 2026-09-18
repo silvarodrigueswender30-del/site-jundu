@@ -4,19 +4,15 @@
  * Source: ARQUIVOS/testuras/bambu.jpeg (2752x1536 raster)
  * Alpha: public/brand/textures/bamboo-alpha.png
  * Alpha calibration: blackPoint=0, whitePoint=245, gamma=0.45
- *   → strong line density, background fully transparent
+ *   → background fully transparent, original linework preserved
  *
- * Composition intent: architectural gesture concentrated on the right third.
- * The trama suggests structure and rhythm without filling the whole section.
+ * Composition intent: peripheral architectural gesture in the upper-right.
+ * Only the sparse transition of the matrix enters the section.
  *
  * The matrix origin:
  *   - Left half: flowing parallel lines (entry)
  *   - Right half: dense woven trama (structure, the editorial anchor)
- * We anchor to the right half for all breakpoints.
- *
- * Mobile (<768px): upper-right corner, the woven density area, very present.
- * Tablet (768–1023px): right side, moderate scale, clean left for text.
- * Desktop (>=1024px): concentrated right/upper-right editorial fragment.
+ * We crop before the dense woven core for all breakpoints.
  */
 
 .artwork {
@@ -27,44 +23,33 @@
   user-select: none;
   background-color: var(--color-forest-900);
 
-  /*
-   * Mobile: show upper-right dense region of the matrix (right ~30% of the image).
-   * Large mask-size shows only a fragment: the intersection area where lines are bold.
-   * mask-position 100% 0% anchors the right edge of the mask to the right of the viewport.
-   */
-  opacity: 0.09;
+  opacity: 0.045;
   -webkit-mask-image: url("/brand/textures/bamboo-alpha.png");
   mask-image: url("/brand/textures/bamboo-alpha.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  /* On mobile show a crop of the right-side woven density */
   -webkit-mask-size: 900px auto;
   mask-size: 900px auto;
-  /* Anchor the right side of the mask to the right side of the element */
-  -webkit-mask-position: 100% 0%;
-  mask-position: 100% 0%;
+  -webkit-mask-position: calc(100% + 760px) -30px;
+  mask-position: calc(100% + 760px) -30px;
 }
 
-/* Tablet: 768px+ — wider view, still right-anchored, slightly larger fragment */
 @media (min-width: 768px) {
   .artwork {
-    opacity: 0.09;
-    -webkit-mask-size: 1000px auto;
-    mask-size: 1000px auto;
-    -webkit-mask-position: calc(100% + 80px) 15%;
-    mask-position: calc(100% + 80px) 15%;
+    opacity: 0.055;
+    -webkit-mask-size: 1100px auto;
+    mask-size: 1100px auto;
+    -webkit-mask-position: calc(100% + 720px) -40px;
+    mask-position: calc(100% + 720px) -40px;
   }
 }
 
-/* Desktop: 1024px+ — elegant architectural fragment, upper-right, controlled bleed */
 @media (min-width: 1024px) {
   .artwork {
-    opacity: 0.08;
-    /* Moderate scale: show the dense woven region without flooding the section */
-    -webkit-mask-size: clamp(900px, 75vw, 1150px) auto;
-    mask-size: clamp(900px, 75vw, 1150px) auto;
-    /* Push right so only the woven right portion bleeds in, left side stays clean */
-    -webkit-mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%;
-    mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%;
+    opacity: 0.055;
+    -webkit-mask-size: clamp(1350px, 110vw, 1650px) auto;
+    mask-size: clamp(1350px, 110vw, 1650px) auto;
+    -webkit-mask-position: calc(100% + clamp(700px, 62vw, 900px)) -60px;
+    mask-position: calc(100% + clamp(700px, 62vw, 900px)) -60px;
   }
 }
