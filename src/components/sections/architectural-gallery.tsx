@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { siteData } from "@/data/site";
+import { BambooArtwork } from "@/components/brand/artwork/bamboo-artwork";
 
 export function ArchitecturalGallery() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,7 +71,8 @@ export function ArchitecturalGallery() {
       data-section="architectural-gallery"
       className="relative w-full bg-background pt-[104px] pb-[112px] lg:pt-[144px] lg:pb-[160px] px-6 lg:px-8 overflow-hidden"
     >
-      <div className="w-full max-w-[1320px] mx-auto">
+      <BambooArtwork />
+      <div className="w-full max-w-[1320px] mx-auto relative z-10">
         {/* Header */}
         <div className="mb-12 lg:mb-16">
           <p

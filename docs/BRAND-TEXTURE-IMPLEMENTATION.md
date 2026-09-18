@@ -26,8 +26,44 @@
 - Secao de uso: `src/components/sections/brand-manifesto.tsx`
 - Commit-base aprovado: `70dee4f2d7331c35f0bf3eda94621190b05c22cf`
 
+## Territorio e Bambu utilizam o mesmo sistema tecnico
+
+Territorio e Bambu compartilham o mesmo metodo deterministico de conversao
+luminancia → canal alpha e a mesma arquitetura de componente (CSS Module + div aria-hidden).
+
+Cada textura possui composicao responsiva INDEPENDENTE.
+Nenhuma textura pode copiar automaticamente os valores de mask-size, mask-position
+ou opacity da outra.
+
+## Bambu
+
+- Significado: arquitetura / estrutura / materialidade / ritmo espacial / trama construtiva
+- Fonte original: `ARQUIVOS/testuras/bambu.jpeg`
+- Gerador deterministico: `scripts/generate-bamboo-texture.mjs`
+- Mascara aprovada: `public/brand/textures/bamboo-alpha.png` (2752x1536, 413 KB)
+- Componente: `src/components/brand/artwork/bamboo-artwork.tsx`
+- Estilos responsivos: `src/components/brand/artwork/bamboo-artwork.module.css`
+- Secao de uso: `src/components/sections/architectural-gallery.tsx`
+- Token de cor: `var(--color-forest-900)`
+
+### Valores responsivos Bambu
+
+**Mobile (< 768px)**
+- opacity: 0.07
+- mask-size: auto 130%
+- mask-position: 85% center
+
+**Tablet (>= 768px)**
+- opacity: 0.09
+- mask-size: 1200px auto
+- mask-position: calc(100% + 200px) 30%
+
+**Desktop (>= 1024px)**
+- opacity: 0.11
+- mask-size: clamp(1400px, 120vw, 2000px) auto
+- mask-position: calc(100% + clamp(100px, 10vw, 260px)) 20%
+
 ## Proximas texturas
 
-Os assets `ARQUIVOS/testuras/bambu.jpeg` e `ARQUIVOS/testuras/raizes.jpeg`
-devem seguir o mesmo processo deterministico. Eles ainda nao foram implementados e
-nao devem reutilizar curvas, vetores ou aproximacoes manuais.
+O asset `ARQUIVOS/testuras/raizes.jpeg` deve seguir o mesmo processo deterministico.
+Ele ainda nao foi implementado e nao deve reutilizar curvas, vetores ou aproximacoes manuais.
