@@ -5,20 +5,24 @@
   pointer-events: none;
   user-select: none;
   background-color: var(--color-forest-600);
-  opacity: 0;
+  opacity: 0.08;
   -webkit-mask-image: url("/brand/textures/territory-alpha.png");
   mask-image: url("/brand/textures/territory-alpha.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-size: 1000px auto;
-  mask-size: 1000px auto;
-  -webkit-mask-position: calc(100% + 520px) 58%;
-  mask-position: calc(100% + 520px) 58%;
+  -webkit-mask-size: auto 112%;
+  mask-size: auto 112%;
+  -webkit-mask-position: 42% center;
+  mask-position: 42% center;
 }
 
 @media (min-width: 768px) {
   .artwork {
     opacity: 0.1;
+    -webkit-mask-size: 1000px auto;
+    mask-size: 1000px auto;
+    -webkit-mask-position: calc(100% + 520px) 58%;
+    mask-position: calc(100% + 520px) 58%;
   }
 }
 
