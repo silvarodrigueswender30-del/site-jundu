@@ -40,7 +40,8 @@ ou opacity da outra.
 - Significado: arquitetura / estrutura / materialidade / ritmo espacial / trama construtiva
 - Fonte original: `ARQUIVOS/testuras/bambu.jpeg`
 - Gerador deterministico: `scripts/generate-bamboo-texture.mjs`
-- Mascara aprovada: `public/brand/textures/bamboo-alpha.png` (2752x1536, 413 KB)
+- Mascara aprovada: `public/brand/textures/bamboo-alpha.png` (2752x1536)
+  - Curva Alpha refinada: `blackPoint=0`, `whitePoint=245`, `gamma=0.45` para densidade de linha
 - Componente: `src/components/brand/artwork/bamboo-artwork.tsx`
 - Estilos responsivos: `src/components/brand/artwork/bamboo-artwork.module.css`
 - Secao de uso: `src/components/sections/architectural-gallery.tsx`
@@ -48,20 +49,22 @@ ou opacity da outra.
 
 ### Valores responsivos Bambu
 
+A matriz foi ancorada com peso na lateral direita.
+
 **Mobile (< 768px)**
-- opacity: 0.07
-- mask-size: auto 130%
-- mask-position: 85% center
+- opacity: 0.09
+- mask-size: 900px auto
+- mask-position: 100% 0%
 
 **Tablet (>= 768px)**
 - opacity: 0.09
-- mask-size: 1200px auto
-- mask-position: calc(100% + 200px) 30%
+- mask-size: 1000px auto
+- mask-position: calc(100% + 80px) 15%
 
 **Desktop (>= 1024px)**
-- opacity: 0.11
-- mask-size: clamp(1400px, 120vw, 2000px) auto
-- mask-position: calc(100% + clamp(100px, 10vw, 260px)) 20%
+- opacity: 0.08
+- mask-size: clamp(900px, 75vw, 1150px) auto
+- mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%
 
 ## Proximas texturas
 

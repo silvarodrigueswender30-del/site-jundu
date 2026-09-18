@@ -1,13 +1,22 @@
 /*
  * Bamboo Artwork — CSS Mask layer
  *
- * The bamboo matrix is a fine linear trama with wide white areas.
- * It works at large scales to suggest architectural structure without dominating.
+ * Source: ARQUIVOS/testuras/bambu.jpeg (2752x1536 raster)
+ * Alpha: public/brand/textures/bamboo-alpha.png
+ * Alpha calibration: blackPoint=0, whitePoint=245, gamma=0.45
+ *   → strong line density, background fully transparent
  *
- * Mobile (<768px): right-anchored fragment, very soft presence.
- * Tablet (768–1023px): wider trama, shifted right, moderate presence.
- * Desktop (>=1024px): expansive architectural framing, right/upper-right,
- *   intentional bleed — shows the woven density without fitting the whole image.
+ * Composition intent: architectural gesture concentrated on the right third.
+ * The trama suggests structure and rhythm without filling the whole section.
+ *
+ * The matrix origin:
+ *   - Left half: flowing parallel lines (entry)
+ *   - Right half: dense woven trama (structure, the editorial anchor)
+ * We anchor to the right half for all breakpoints.
+ *
+ * Mobile (<768px): upper-right corner, the woven density area, very present.
+ * Tablet (768–1023px): right side, moderate scale, clean left for text.
+ * Desktop (>=1024px): concentrated right/upper-right editorial fragment.
  */
 
 .artwork {
@@ -18,38 +27,44 @@
   user-select: none;
   background-color: var(--color-forest-900);
 
-  /* Mobile default: soft right-edge fragment */
-  opacity: 0.07;
+  /*
+   * Mobile: show upper-right dense region of the matrix (right ~30% of the image).
+   * Large mask-size shows only a fragment: the intersection area where lines are bold.
+   * mask-position 100% 0% anchors the right edge of the mask to the right of the viewport.
+   */
+  opacity: 0.09;
   -webkit-mask-image: url("/brand/textures/bamboo-alpha.png");
   mask-image: url("/brand/textures/bamboo-alpha.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  /* Show the right side of the matrix (where trama is dense) */
-  -webkit-mask-size: auto 130%;
-  mask-size: auto 130%;
-  -webkit-mask-position: 85% center;
-  mask-position: 85% center;
+  /* On mobile show a crop of the right-side woven density */
+  -webkit-mask-size: 900px auto;
+  mask-size: 900px auto;
+  /* Anchor the right side of the mask to the right side of the element */
+  -webkit-mask-position: 100% 0%;
+  mask-position: 100% 0%;
 }
 
-/* Tablet: 768px+ — wider trama, still anchored right */
+/* Tablet: 768px+ — wider view, still right-anchored, slightly larger fragment */
 @media (min-width: 768px) {
   .artwork {
     opacity: 0.09;
-    -webkit-mask-size: 1200px auto;
-    mask-size: 1200px auto;
-    -webkit-mask-position: calc(100% + 200px) 30%;
-    mask-position: calc(100% + 200px) 30%;
+    -webkit-mask-size: 1000px auto;
+    mask-size: 1000px auto;
+    -webkit-mask-position: calc(100% + 80px) 15%;
+    mask-position: calc(100% + 80px) 15%;
   }
 }
 
-/* Desktop: 1024px+ — architectural editorial crop, bleed right */
+/* Desktop: 1024px+ — elegant architectural fragment, upper-right, controlled bleed */
 @media (min-width: 1024px) {
   .artwork {
-    opacity: 0.11;
-    -webkit-mask-size: clamp(1400px, 120vw, 2000px) auto;
-    mask-size: clamp(1400px, 120vw, 2000px) auto;
-    /* Anchor to upper-right: the trama density bleeds off the right edge */
-    -webkit-mask-position: calc(100% + clamp(100px, 10vw, 260px)) 20%;
-    mask-position: calc(100% + clamp(100px, 10vw, 260px)) 20%;
+    opacity: 0.08;
+    /* Moderate scale: show the dense woven region without flooding the section */
+    -webkit-mask-size: clamp(900px, 75vw, 1150px) auto;
+    mask-size: clamp(900px, 75vw, 1150px) auto;
+    /* Push right so only the woven right portion bleeds in, left side stays clean */
+    -webkit-mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%;
+    mask-position: calc(100% + clamp(60px, 6vw, 140px)) 10%;
   }
 }
