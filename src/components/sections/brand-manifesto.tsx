@@ -10,9 +10,9 @@ export function BrandManifesto() {
     <section
       data-section="brand-manifesto"
       id="essencia"
-      className="bg-background relative w-full overflow-hidden py-[80px] lg:py-[124px]"
+      className="relative isolate w-full overflow-hidden bg-background py-[80px] lg:py-[124px]"
     >
-      <TerritoryArtwork composition="soft" />
+      <TerritoryArtwork />
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-[42%_58%] items-center gap-8 lg:gap-0 relative z-10">
         
         {/* Text Column (42%) */}

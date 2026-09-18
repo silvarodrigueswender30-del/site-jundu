@@ -1,0 +1,33 @@
+.artwork {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  background-color: var(--color-forest-600);
+  opacity: 0;
+  -webkit-mask-image: url("/brand/textures/territory-alpha.png");
+  mask-image: url("/brand/textures/territory-alpha.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 1000px auto;
+  mask-size: 1000px auto;
+  -webkit-mask-position: calc(100% + 520px) 58%;
+  mask-position: calc(100% + 520px) 58%;
+}
+
+@media (min-width: 768px) {
+  .artwork {
+    opacity: 0.1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .artwork {
+    opacity: 0.16;
+    -webkit-mask-size: clamp(1100px, 105vw, 1700px) auto;
+    mask-size: clamp(1100px, 105vw, 1700px) auto;
+    -webkit-mask-position: calc(100% + clamp(180px, 18vw, 320px)) 48%;
+    mask-position: calc(100% + clamp(180px, 18vw, 320px)) 48%;
+  }
+}

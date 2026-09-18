@@ -17,7 +17,7 @@ const toneMap: Record<string, string> = {
 const variantMap: Record<string, string> = {
   roots: "/brand/textures/restinga.svg",
   bamboo: "/brand/textures/bamboo.svg",
-  territory: "/brand/textures/territory.svg"
+  territory: "/brand/textures/territory-alpha.png"
 };
 
 const opacityMap: Record<string, string> = {
