@@ -43,15 +43,15 @@ export const siteData = {
         marker: "2013",
         title: "Praia Bar Prumirim",
         description: "Gilberto Eustáquio e Daniela Costa inauguram o primeiro Jundu em 13 de novembro, levando para o quiosque a cultura caiçara, a arquitetura natural e a relação com a praia.",
-        image: "/images/stories/story-atmosfera.webp",
+        image: "/images/history/jundu-history-prumirim.avif",
         alt: "Prumirim",
-        objectPosition: "center 40%"
+        objectPosition: "center center"
       },
       {
         marker: "EXPANSÃO",
         title: "Lounge Bar Itaguá",
         description: "O bairro do Itaguá recebe o primeiro restaurante do grupo. A chef Maria Eustáquio assume a cozinha, unindo sofisticação e culinária caiçara.",
-        image: "/images/editorial/gastronomia-provisoria.webp",
+        image: "/images/history/jundu-history-itagua.avif",
         alt: "Lounge Bar Itaguá",
         objectPosition: "center center"
       },
@@ -59,7 +59,7 @@ export const siteData = {
         marker: "2021",
         title: "Espaço Jundu Gastrobar",
         description: "O maior restaurante do grupo nasce na Praia Grande. O chef Fabio Eustáquio combina técnicas asiáticas e ingredientes brasileiros em uma nova expressão gastronômica.",
-        image: "/images/stories/story-gastronomia.webp",
+        image: "/images/history/jundu-history-gastrobar.avif",
         alt: "Espaço Jundu Gastrobar na Praia Grande",
         objectPosition: "center center"
       },
@@ -67,9 +67,9 @@ export const siteData = {
         marker: "200+",
         title: "Pessoas, uma mesma essência",
         description: "O Grupo Jundu passa a reunir mais de 200 colaboradores com o propósito de fazer cada visitante sair melhor e mais feliz do que entrou.",
-        image: "/images/stories/story-atendimento.webp",
+        image: "/images/history/jundu-history-people.avif",
         alt: "Equipe do Jundu",
-        objectPosition: "center 30%"
+        objectPosition: "center center"
       }
     ]
   },
