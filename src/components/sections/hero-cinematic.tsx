@@ -7,8 +7,8 @@ export function HeroCinematic() {
       
       {/* Mídia de Fundo */}
       <HeroVideo 
-        posterDesktop="/images/hero/jundu-hero-desktop.webp" 
-        posterMobile="/images/hero/jundu-hero-mobile.webp"
+        posterDesktop="/images/hero/jundu-hero-desktop.avif" 
+        posterMobile="/images/hero/jundu-hero-mobile.avif"
       />
 
       {/* Conteúdo Principal */}
