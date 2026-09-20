@@ -72,26 +72,26 @@ export function HeroVideo({ src, posterDesktop, posterMobile }: HeroVideoProps) 
     }
   }, [shouldPlay]);
 
-  const activePoster = isMobile ? posterMobile : posterDesktop;
-
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden bg-forest-900 z-0">
-      {/* Imagem em WebP puro sem simulação avif */}
-      <img
-        src={activePoster}
-        alt="Interior do restaurante Jundu"
-        className="absolute inset-0 w-full h-full object-cover origin-center"
-        style={{
-          transform: reducedMotion ? "none" : "scale(1.02)",
-          transition: "transform 10s ease-out",
-        }}
-      />
+      <picture>
+        <source media="(max-width: 767px)" srcSet={posterMobile} />
+        <img
+          src={posterDesktop}
+          alt="Jundu Praia Bar"
+          className="absolute inset-0 w-full h-full object-cover object-center origin-center"
+          style={{
+            transform: reducedMotion ? "none" : "scale(1.02)",
+            transition: "transform 10s ease-out",
+          }}
+        />
+      </picture>
       
       {src && !reducedMotion && (
         <video
           ref={videoRef}
           src={src}
-          poster={activePoster}
+          poster={isMobile ? posterMobile : posterDesktop}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[640ms] ${shouldPlay ? "opacity-100" : "opacity-0"}`}
           muted
           loop
