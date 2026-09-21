@@ -187,12 +187,12 @@ export const siteData = {
       },
       gallery: {
         main: {
-          src: "/images/editorial/gastronomia-provisoria.webp",
-          alt: "Detalhe da alta gastronomia com ingredientes locais"
+          src: "/images/editorial/jundu-origem-comida.avif",
+          alt: "Preparo de prato no Jundu, ressaltando o processo, presença humana e cozinha viva"
         },
         secondaryTop: {
-          src: "/images/stories/story-atendimento.webp",
-          alt: "Momento de serviço e hospitalidade"
+          src: "/images/editorial/jundu-origem-drink.avif",
+          alt: "Preparo de drink no Jundu, destacando coquetelaria autoral e gelo cristalino"
         }
       },
       pillars: [

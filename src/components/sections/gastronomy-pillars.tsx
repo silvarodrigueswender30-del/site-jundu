@@ -47,7 +47,6 @@ export function GastronomyPillars() {
 
           {/* Secondary Image */}
           <div className="w-full md:w-[41.666%] h-[400px] sm:h-[480px] md:h-full relative rounded-xl overflow-hidden group">
-            {/* TODO: incorporar fotografia oficial da coquetelaria Jundu quando o asset for fornecido. */}
             <Image
               src={data.gallery.secondaryTop.src}
               alt={data.gallery.secondaryTop.alt}
