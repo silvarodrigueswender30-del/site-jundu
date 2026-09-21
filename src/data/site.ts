@@ -107,9 +107,8 @@ export const siteData = {
       text: "Ingredientes, arquitetura e encontros se conectam em uma experiência que nasce do litoral e ganha identidade em cada ambiente.",
       link: { label: "Conheça a nossa história", href: "#historia" },
       image: {
-        src: "/images/editorial/gastronomia-provisoria.webp",
-        alt: "Prato servido no restaurante Jundu (Provisório)",
-        // TODO: Substituir por fotografia de alta resolução do acervo final
+        src: "/images/editorial/jundu-gastronomia.avif",
+        alt: "Prato da alta gastronomia servido no restaurante Jundu",
       },
     },
     stories: {
