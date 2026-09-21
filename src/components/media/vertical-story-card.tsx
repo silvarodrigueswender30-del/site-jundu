@@ -53,10 +53,12 @@ export function VerticalStoryCard({
 
   useEffect(() => {
     if (isActive && !isPlaying && !reducedMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       startPlayback();
     } else if (!isActive && videoRef.current && isPlaying) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsPlaying(false);
     }
   }, [isActive, isPlaying, reducedMotion, startPlayback]);
@@ -138,22 +140,8 @@ export function VerticalStoryCard({
       role="group"
       aria-label={`${story.category}: ${story.title}`}
     >
-      {/* Poster */}
-      <Image
-        src={story.poster}
-        alt={story.alt}
-        fill
-        sizes={size === "featured" ? "370px" : "280px"}
-        className={`
-          object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)]
-          ${!reducedMotion && isActive ? "scale-[1.02]" : "scale-100"}
-          ${!reducedMotion && !isActive ? "group-hover:scale-[1.02]" : ""}
-        `}
-        style={{ objectPosition: story.objectPosition }}
-      />
-
-      {/* Video element */}
-      {hasVideo && (
+      {/* Background (Video or Image Fallback) */}
+      {hasVideo ? (
         <video
           ref={videoRef}
           src={story.videoSrc}
@@ -163,13 +151,26 @@ export function VerticalStoryCard({
           loop
           className={`
             absolute inset-0 w-full h-full object-cover
-            transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
-            ${isPlaying ? "opacity-100" : "opacity-0"}
+            transition-transform duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)]
             ${!reducedMotion && isActive ? "scale-[1.02]" : "scale-100"}
+            ${!reducedMotion && !isActive ? "group-hover:scale-[1.02]" : ""}
           `}
           style={{ objectPosition: story.objectPosition }}
           onError={() => setHasError(true)}
           aria-hidden="true"
+        />
+      ) : (
+        <Image
+          src={story.poster}
+          alt={story.alt}
+          fill
+          sizes={size === "featured" ? "370px" : "280px"}
+          className={`
+            object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)]
+            ${!reducedMotion && isActive ? "scale-[1.02]" : "scale-100"}
+            ${!reducedMotion && !isActive ? "group-hover:scale-[1.02]" : ""}
+          `}
+          style={{ objectPosition: story.objectPosition }}
         />
       )}
 

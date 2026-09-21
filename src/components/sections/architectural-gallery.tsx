@@ -72,40 +72,56 @@ export function ArchitecturalGallery() {
     >
       <div className="w-full max-w-[1320px] mx-auto">
         {/* Header */}
-        <div className="mb-12 lg:mb-16">
-          <p
-            className={`font-body text-[12px] md:text-[13px] uppercase tracking-[0.26em] text-primary mb-[20px] transition-opacity duration-700 ${
-              shouldAnimate
-                ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
-                : showContent ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ animationDelay: "50ms" }}
-          >
-            {data.eyebrow}
-          </p>
-          <h2
-            className={`font-display text-forest-900 m-0 transition-opacity duration-700 ${
-              shouldAnimate
-                ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
-                : showContent ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              fontSize: "clamp(3.5rem, 5vw, 4.5rem)",
-              lineHeight: 0.98,
-              letterSpacing: "-0.025em",
-            }}
-          >
-            <span className="lg:whitespace-nowrap">Imagem em escala</span>
-            <span className="hidden lg:inline"><br /></span>
-            <span className="lg:whitespace-nowrap">arquitetônica.</span>
-          </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-14 lg:mb-20 items-end">
+          <div className="lg:col-span-7">
+            <p
+              className={`font-body text-[12px] md:text-[13px] uppercase tracking-[0.26em] text-primary mb-[20px] transition-opacity duration-700 ${
+                shouldAnimate
+                  ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
+                  : showContent ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ animationDelay: "50ms" }}
+            >
+              {data.eyebrow}
+            </p>
+            <h2
+              className={`font-display text-forest-900 m-0 transition-opacity duration-700 ${
+                shouldAnimate
+                  ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
+                  : showContent ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                fontSize: "clamp(3rem, 4.5vw, 4rem)",
+                lineHeight: 0.98,
+                letterSpacing: "-0.025em",
+                textWrap: "balance"
+              }}
+            >
+              <span className="whitespace-pre-line">{data.title}</span>
+            </h2>
+          </div>
+
+          {data.text && (
+            <div className="lg:col-span-5 flex items-end pb-2">
+              <p
+                className={`font-body text-[16px] md:text-[17px] text-forest-900/80 max-w-[40ch] leading-[1.6] transition-opacity duration-700 ${
+                  shouldAnimate
+                    ? "opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
+                    : showContent ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ animationDelay: "250ms" }}
+              >
+                {data.text}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Galeria Mosaico - Topo e Base alinhados */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          
+
           {/* Foto dominante à esquerda (8 colunas) */}
-          <div 
+          <div
             className={`lg:col-span-8 relative aspect-[4/3] lg:aspect-[6/5] overflow-hidden rounded-[16px] transition-all duration-[900ms] ${
               shouldAnimate
                 ? "opacity-0 animate-[fade-in-up_900ms_cubic-bezier(.22,1,.36,1)_200ms_forwards]"
@@ -129,9 +145,9 @@ export function ArchitecturalGallery() {
 
           {/* Fotografias menores empilhadas à direita (4 colunas) */}
           <div className="lg:col-span-4 flex flex-col gap-6 lg:gap-8 h-full">
-            
+
             {/* Imagem 2 */}
-            <div 
+            <div
               className={`relative flex-1 min-h-[250px] lg:min-h-0 overflow-hidden rounded-[16px] transition-all duration-[900ms] ${
                 shouldAnimate
                   ? "opacity-0 animate-[fade-in-up_900ms_cubic-bezier(.22,1,.36,1)_400ms_forwards]"
@@ -154,7 +170,7 @@ export function ArchitecturalGallery() {
             </div>
 
             {/* Imagem 3 */}
-            <div 
+            <div
               className={`relative flex-1 min-h-[250px] lg:min-h-0 overflow-hidden rounded-[16px] transition-all duration-[900ms] ${
                 shouldAnimate
                   ? "opacity-0 animate-[fade-in-up_900ms_cubic-bezier(.22,1,.36,1)_600ms_forwards]"
