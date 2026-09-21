@@ -38,14 +38,6 @@ export function VerticalStoryCard({
     };
   }, []);
 
-  useEffect(() => {
-    if (!isActive && videoRef.current && isPlaying) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-      setIsPlaying(false);
-    }
-  }, [isActive, isPlaying]);
-
   const startPlayback = useCallback(async () => {
     if (!videoRef.current || !hasVideo || hasError) return;
     setIsLoading(true);
@@ -58,6 +50,16 @@ export function VerticalStoryCard({
       setIsLoading(false);
     }
   }, [hasVideo, hasError]);
+
+  useEffect(() => {
+    if (isActive && !isPlaying && !reducedMotion) {
+      startPlayback();
+    } else if (!isActive && videoRef.current && isPlaying) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  }, [isActive, isPlaying, reducedMotion, startPlayback]);
 
   const stopPlayback = useCallback(() => {
     if (videoRef.current) {
@@ -79,7 +81,8 @@ export function VerticalStoryCard({
     }
 
     if (isActive && isPlaying) {
-      onRequestExpand(story);
+      stopPlayback();
+      onDeactivate();
     } else {
       onActivate(story.id);
       startPlayback();
@@ -88,10 +91,12 @@ export function VerticalStoryCard({
 
   const handleMouseEnter = () => {
     if (reducedMotion || !hasVideo) return;
+    if (window.matchMedia("(hover: none)").matches) return;
     hoverTimerRef.current = setTimeout(() => {
       if (!isActive) {
         onActivate(story.id);
-        startPlayback();
+        // startPlayback is handled by the useEffect now, so we don't strictly need to call it,
+        // but it's safe to keep or remove. We'll leave it out since useEffect handles it.
       }
     }, 400);
   };
@@ -118,10 +123,11 @@ export function VerticalStoryCard({
     <div
       className={`
         relative w-full overflow-hidden cursor-pointer group
-        transition-transform duration-[640ms] ease-[cubic-bezier(.22,1,.36,1)]
+        transition-all duration-[640ms] ease-[cubic-bezier(.22,1,.36,1)]
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900
-        ${!reducedMotion ? "hover:scale-[1.015]" : ""}
-        ${isActive && isPlaying ? "ring-2 ring-primary ring-offset-2 ring-offset-forest-900" : ""}
+        ${!reducedMotion && isActive ? "scale-[1.015]" : ""}
+        ${!reducedMotion && !isActive ? "hover:scale-[1.015]" : ""}
+        ${!isActive ? "brightness-95" : "brightness-100"}
       `}
       style={{
         aspectRatio: "9 / 16",
@@ -139,8 +145,9 @@ export function VerticalStoryCard({
         fill
         sizes={size === "featured" ? "370px" : "280px"}
         className={`
-          object-cover transition-transform duration-[850ms] ease-[cubic-bezier(.22,1,.36,1)]
-          ${!reducedMotion ? "group-hover:scale-[1.035]" : ""}
+          object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)]
+          ${!reducedMotion && isActive ? "scale-[1.02]" : "scale-100"}
+          ${!reducedMotion && !isActive ? "group-hover:scale-[1.02]" : ""}
         `}
         style={{ objectPosition: story.objectPosition }}
       />
@@ -150,14 +157,15 @@ export function VerticalStoryCard({
         <video
           ref={videoRef}
           src={story.videoSrc}
-          preload="none"
+          preload="metadata"
           playsInline
           muted
           loop
           className={`
             absolute inset-0 w-full h-full object-cover
-            transition-opacity duration-500
+            transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
             ${isPlaying ? "opacity-100" : "opacity-0"}
+            ${!reducedMotion && isActive ? "scale-[1.02]" : "scale-100"}
           `}
           style={{ objectPosition: story.objectPosition }}
           onError={() => setHasError(true)}
@@ -166,8 +174,12 @@ export function VerticalStoryCard({
       )}
 
       {/* Overlay gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-900/85 via-forest-900/15 to-forest-900/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-forest-900/10 pointer-events-none" />
+      <div
+        className={`absolute inset-0 bg-gradient-to-t from-forest-900/85 via-forest-900/15 to-forest-900/10 pointer-events-none transition-opacity duration-700 ${isActive ? 'opacity-80' : 'opacity-100'}`}
+      />
+      <div
+        className={`absolute inset-0 bg-forest-900/10 pointer-events-none transition-opacity duration-700 ${isActive ? 'opacity-0' : 'opacity-100'}`}
+      />
 
       {/* Category (top) */}
       <div className="absolute top-0 left-0 right-0 p-5">
@@ -190,7 +202,7 @@ export function VerticalStoryCard({
           ${isPlaying ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}
         style={{ width: playButtonSize, height: playButtonSize }}
-        aria-label={`Reproduzir ${story.title}`}
+        aria-label={isPlaying ? `Pausar vídeo de ${story.category.toLowerCase()}` : `Reproduzir vídeo de ${story.category.toLowerCase()}`}
         aria-pressed={isPlaying}
       >
         {isLoading ? (

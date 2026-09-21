@@ -20,7 +20,6 @@ export function VerticalStories() {
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReducedMotion(motionQuery.matches);
     const handleMotion = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     motionQuery.addEventListener("change", handleMotion);
@@ -28,13 +27,19 @@ export function VerticalStories() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const isDesktop = window.innerWidth >= 1024;
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.unobserve(entry.target);
+            if (isDesktop && !motionQuery.matches) {
+              setActiveStoryId((current) => current || "story-gastronomia");
+            }
+          } else {
+            // When leaving viewport, pause all by clearing active ID
+            setActiveStoryId(null);
           }
         });
       },
-      { threshold: 0.05, rootMargin: "200px 0px" }
+      { threshold: 0.45, rootMargin: "0px" }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -44,6 +49,13 @@ export function VerticalStories() {
       observer.disconnect();
     };
   }, []);
+
+  // When returning to the center / hover logic
+  const handleContainerMouseLeave = useCallback(() => {
+    if (window.innerWidth >= 1024 && isVisible && !reducedMotion) {
+      setActiveStoryId("story-gastronomia");
+    }
+  }, [isVisible, reducedMotion]);
 
   // Mobile scroll-snap tracker
   useEffect(() => {
@@ -132,9 +144,7 @@ export function VerticalStories() {
                   textWrap: "balance"
                 }}
               >
-                <span className="lg:whitespace-nowrap">Histórias verticais,</span>
-                <span className="hidden lg:inline"><br /></span>
-                <span className="lg:whitespace-nowrap">experiência imersiva.</span>
+                <span className="whitespace-pre-line">{data.title}</span>
               </h2>
             </div>
 
@@ -154,7 +164,10 @@ export function VerticalStories() {
           </div>
 
           {/* ── Galeria Desktop: 3 cards assimétricos ── */}
-          <div className="hidden lg:flex justify-center items-end gap-[30px]">
+          <div
+            className="hidden lg:flex justify-center items-end gap-[30px]"
+            onMouseLeave={handleContainerMouseLeave}
+          >
             {stories.map((story, i) => {
               const isFeatured = i === 1;
               const delay = 350 + i * 100;
