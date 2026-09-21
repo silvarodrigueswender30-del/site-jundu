@@ -74,12 +74,12 @@ export const siteData = {
     ]
   },
   peopleBehindJundu: {
-    eyebrow: "QUEM DÁ VIDA AO GRUPO",
-    title: "Pessoas que fazem\no Jundu acontecer.",
-    description: "O Jundu cresceu a partir de encontros: entre família, equipe, cozinha, arquitetura e território. Hoje, mais de 200 colaboradores compartilham o propósito de receber bem e transformar cada visita em uma experiência conectada a Ubatuba.",
+    eyebrow: "QUEM DÁ VIDA À EXPERIÊNCIA",
+    title: "A essência do Jundu\npassa por muitas mãos.",
+    description: "Da cozinha ao salão, do bar ao cuidado com cada detalhe, o Jundu é construído todos os dias por pessoas que compartilham o mesmo jeito de receber. Técnica, afeto, repertório e presença transformam cada visita em uma experiência conectada ao lugar.",
     photo: {
-      src: "/images/stories/story-atendimento.webp",
-      alt: "Equipe de atendimento do Jundu conversando e sorrindo no ambiente do restaurante"
+      src: "/images/people/jundu-people-a.avif",
+      alt: "Equipe do Jundu em ação"
     },
     stats: {
       number: "200+",
@@ -87,16 +87,16 @@ export const siteData = {
     },
     leaders: [
       {
-        name: "Gilberto Eustáquio e Daniela Costa",
-        role: "Fundadores do Grupo Jundu"
+        name: "COZINHA",
+        role: "Ingredientes, técnica e memória transformados em experiência."
       },
       {
-        name: "Maria Eustáquio",
-        role: "Chef à frente da cozinha do Lounge Bar Itaguá"
+        name: "HOSPITALIDADE",
+        role: "Um jeito de receber que atravessa todas as unidades."
       },
       {
-        name: "Fabio Eustáquio",
-        role: "Chef do Espaço Jundu Gastrobar"
+        name: "BAR & SALÃO",
+        role: "Ritmo, presença e cuidado em cada encontro."
       }
     ]
   },

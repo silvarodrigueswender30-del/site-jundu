@@ -1,9 +1,20 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { siteData } from '@/data/site';
 
 export function PeopleBehindJundu() {
   const data = siteData.peopleBehindJundu;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current === 0 ? 1 : 0));
+    }, 6000); // 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -35,15 +46,35 @@ export function PeopleBehindJundu() {
           
           {/* Photo Column */}
           <div className="lg:col-span-7 w-full animate-[fade-in-up_850ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0 [animation-delay:320ms]">
-            <div className="relative w-full aspect-[6/5] overflow-hidden rounded-xl">
-              {/* TODO: substituir por fotografia oficial da equipe do Grupo Jundu. */}
-              <Image
-                src={data.photo.src}
-                alt={data.photo.alt}
-                fill
-                className="object-cover object-[center_30%]"
-                sizes="(max-width: 1024px) 100vw, 55vw"
-              />
+            <div className="relative w-full aspect-[6/5] overflow-hidden rounded-xl bg-forest-900/5">
+              <div
+                className="absolute inset-0 w-full h-full transition-opacity duration-[1200ms] ease-in-out"
+                style={{ opacity: activeIndex === 0 ? 1 : 0, zIndex: activeIndex === 0 ? 2 : 1 }}
+              >
+                <Image
+                  src="/images/people/jundu-people-a.avif"
+                  alt="Liderança da equipe do Jundu em um momento mais próximo"
+                  fill
+                  className="object-cover object-center transition-transform duration-[6000ms] ease-linear"
+                  style={{ transform: activeIndex === 0 ? 'scale(1.03)' : 'scale(1)' }}
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  priority
+                />
+              </div>
+
+              <div
+                className="absolute inset-0 w-full h-full transition-opacity duration-[1200ms] ease-in-out"
+                style={{ opacity: activeIndex === 1 ? 1 : 0, zIndex: activeIndex === 1 ? 2 : 1 }}
+              >
+                <Image
+                  src="/images/people/jundu-people-b.avif"
+                  alt="Equipe do Jundu em um registro coletivo"
+                  fill
+                  className="object-cover object-center transition-transform duration-[6000ms] ease-linear"
+                  style={{ transform: activeIndex === 1 ? 'scale(1.03)' : 'scale(1)' }}
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                />
+              </div>
             </div>
           </div>
 
