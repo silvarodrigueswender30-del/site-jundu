@@ -216,20 +216,20 @@ export const siteData = {
     eventsShowcase: {
       eyebrow: "CELEBRAÇÕES & ENCONTROS",
       title: "Eventos que\nganham cenário.",
-      text: "Do encontro íntimo às grandes celebrações, o Grupo Jundu reúne gastronomia, hospitalidade e atmosferas marcantes para transformar cada ocasião em uma experiência.",
+      text: "Aniversários, casamentos, confraternizações e encontros especiais ganham outra dimensão quando gastronomia, atmosfera e hospitalidade se encontram. No Jundu, cada ocasião encontra um espaço com identidade própria para ser vivida e lembrada.",
       cta: {
         label: "PLANEJE SEU EVENTO",
         href: "#contato"
       },
       photo: {
-        src: "/images/stories/story-atmosfera.webp",
+        src: "/images/editorial/jundu-events.avif",
         alt: "Ambiente do Grupo Jundu preparado para receber encontros"
       },
       highlight: {
         prefix: "ATÉ",
         number: "350",
         suffix: "PESSOAS",
-        description: "Capacidade divulgada para eventos no Espaço Jundu Gastrobar."
+        description: "Capacidade para eventos no Espaço Jundu Gastrobar, além de diferentes formatos nas demais unidades."
       },
       modalities: [
         {
