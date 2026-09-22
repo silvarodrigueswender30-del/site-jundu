@@ -148,9 +148,9 @@ export function LocationsAccordion() {
             }
 
             return (
-              <button
+              <div
                 key={unit.id}
-                className={`group relative overflow-hidden rounded-[16px] transition-[flex] duration-700 ease-[cubic-bezier(.22,1,.36,1)] outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900 ${flexClass}`}
+                className={`group relative overflow-hidden rounded-[16px] transition-[flex] duration-700 ease-[cubic-bezier(.22,1,.36,1)] outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900 cursor-pointer ${flexClass}`}
                 onClick={() => setActiveIndex(isActive ? null : index)}
                 onMouseEnter={() => window.innerWidth >= 1024 && setActiveIndex(index)}
                 onFocus={() => setActiveIndex(index)}
@@ -184,9 +184,21 @@ export function LocationsAccordion() {
                       {unit.name}
                     </h3>
                     
+                    <a
+                      href={`/unidades/${unit.id}`}
+                      className={`mt-6 lg:mt-0 inline-flex shrink-0 items-center justify-center font-body text-[13px] md:text-[14px] font-bold bg-primary text-forest-900 px-6 py-3 rounded-full hover:bg-primary-hover transition-all duration-500 ${
+                        isActive ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none lg:absolute lg:right-0"
+                      }`}
+                      onClick={(e) => {
+                        // Prevent the button click from collapsing the accordion if clicked directly
+                        e.stopPropagation();
+                      }}
+                    >
+                      Conhecer unidade
+                    </a>
                   </div>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
