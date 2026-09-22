@@ -11,12 +11,13 @@ export function KitchenToScreen() {
 
   // Fallback data for the film strip
   const items = [
-    { id: "kts-1", image: "/images/stories/story-atmosfera.webp", alt: "Bastidores Jundu 1" },
-    { id: "kts-2", image: "/images/stories/story-atendimento.webp", alt: "Bastidores Jundu 2" },
-    { id: "kts-3", image: "/images/stories/story-gastronomia.webp", alt: "Bastidores Jundu 3" },
-    { id: "kts-4", image: "/images/stories/story-atmosfera.webp", alt: "Bastidores Jundu 4" },
-    { id: "kts-5", image: "/images/stories/story-atendimento.webp", alt: "Bastidores Jundu 5" },
-    { id: "kts-6", image: "/images/stories/story-gastronomia.webp", alt: "Bastidores Jundu 6" },
+    { id: "kts-1", image: "/images/kitchen/jundu-kitchen-01.avif", alt: "Detalhes do preparo na cozinha do Jundu", objectPosition: "center center" },
+    { id: "kts-2", image: "/images/kitchen/jundu-kitchen-02.avif", alt: "Montagem cuidadosa de prato autoral", objectPosition: "center center" },
+    { id: "kts-3", image: "/images/kitchen/jundu-kitchen-03.avif", alt: "Movimento e cadência no salão do Jundu", objectPosition: "center center" },
+    { id: "kts-4", image: "/images/kitchen/jundu-kitchen-04.avif", alt: "Finalização de ingredientes frescos", objectPosition: "center center" },
+    { id: "kts-5", image: "/images/kitchen/jundu-kitchen-05.avif", alt: "Atmosfera acolhedora durante o serviço", objectPosition: "center center" },
+    { id: "kts-6", image: "/images/kitchen/jundu-kitchen-06.avif", alt: "Chef em ação nos bastidores", objectPosition: "center center" },
+    { id: "kts-7", image: "/images/kitchen/jundu-kitchen-07.avif", alt: "Equipe do Jundu em sincronia no atendimento", objectPosition: "center center" },
   ];
 
   useEffect(() => {
@@ -117,6 +118,7 @@ export function KitchenToScreen() {
                   alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 240px, (max-width: 1024px) 280px, 320px"
+                  style={{ objectPosition: item.objectPosition }}
                   className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105"
                 />
                 
@@ -145,6 +147,7 @@ export function KitchenToScreen() {
                   alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 240px, (max-width: 1024px) 280px, 320px"
+                  style={{ objectPosition: item.objectPosition }}
                   className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105"
                 />
                 
