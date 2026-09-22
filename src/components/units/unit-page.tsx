@@ -1,10 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { UnitData } from "@/data/units";
+import { UnitData, unitsData } from "@/data/units";
 import { SiteHeader } from "@/components/navigation/site-header";
 import { SiteFooter } from "@/components/navigation/site-footer";
 import { StickyMobileCTA } from "@/components/navigation/sticky-mobile-cta";
-import { unitsData } from "@/data/units";
 
 // --- HERO COMPONENT ---
 function UnitHero({ data }: { data: UnitData }) {
@@ -17,23 +19,25 @@ function UnitHero({ data }: { data: UnitData }) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-70"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/40 to-forest-900/10" />
+        {/* Directional Overlay: Dark on the left, clear on the right, dark at bottom for CTAs */}
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-900/95 via-forest-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-[8%] flex flex-col justify-end pb-24 md:justify-center md:pb-0 h-full pt-24">
-        <div className="w-full md:w-[65%] text-surface">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 flex flex-col justify-end pb-24 md:justify-center md:pb-0 h-full pt-24">
+        <div className="w-full md:max-w-[720px] text-surface">
           <p className="font-body text-[11px] md:text-sm uppercase tracking-[0.25em] text-sage-300 mb-6 animate-[fade-in-up_600ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0" style={{ animationDelay: '100ms' }}>
             {data.hero.eyebrow}
           </p>
           
           <h1 
-            className="font-display text-surface mb-8 drop-shadow-lg opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
+            className="font-display text-surface mb-8 opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]"
             style={{ 
               animationDelay: '180ms',
-              fontSize: 'clamp(2.5rem, 8vw, 5.5rem)',
-              lineHeight: 0.95,
+              fontSize: 'clamp(44px, 6vw, 88px)',
+              lineHeight: 0.96,
               letterSpacing: '-0.02em',
               textWrap: 'balance'
             }}
@@ -41,21 +45,21 @@ function UnitHero({ data }: { data: UnitData }) {
             {data.hero.title}
           </h1>
           
-          <p className="font-body text-base md:text-[18px] text-surface/90 mb-10 max-w-lg drop-shadow-md opacity-0 animate-[fade-in-up_700ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '260ms', lineHeight: 1.6 }}>
+          <p className="font-body text-base md:text-[18px] text-surface/90 mb-12 max-w-[540px] opacity-0 animate-[fade-in-up_700ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '260ms', lineHeight: 1.65 }}>
             {data.hero.subtitle}
           </p>
           
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 opacity-0 animate-[fade-in-up_750ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '340ms' }}>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 opacity-0 animate-[fade-in-up_750ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '340ms' }}>
             <a 
-              href="#reserva"
-              className="font-body text-[14px] md:text-[15px] font-bold bg-primary text-forest-900 px-8 py-4 rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto text-center"
+              href={data.reserveUrl || "#localizacao"}
+              className="font-body text-[14px] md:text-[15px] font-bold bg-primary text-forest-900 px-9 py-4 rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto text-center"
             >
               {data.hero.primaryCta}
             </a>
             
             <a 
               href="#localizacao"
-              className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full border border-surface/30 text-surface hover:bg-surface hover:text-forest-900 transition-colors"
+              className="flex items-center justify-center gap-3 w-full sm:w-auto px-9 py-4 rounded-full border border-surface/40 text-surface hover:bg-surface hover:text-forest-900 transition-colors"
             >
               <span className="font-body text-[14px] md:text-[15px] font-bold">
                 {data.hero.secondaryCta}
@@ -68,27 +72,34 @@ function UnitHero({ data }: { data: UnitData }) {
   );
 }
 
-// --- QUICK INFO COMPONENT ---
-function UnitQuickInfo({ data }: { data: UnitData }) {
+// --- INFORMATION RAIL COMPONENT ---
+function UnitInformationRail({ data }: { data: UnitData }) {
   const infos = [];
   if (data.address) infos.push({ label: "ENDEREÇO", value: data.address });
   if (data.hours) infos.push({ label: "HORÁRIO", value: data.hours });
-  if (data.phone) infos.push({ label: "CONTATO", value: data.phone });
+  infos.push({ label: "RESERVAS", value: data.phone || "Consultar disponibilidade" });
+  if (data.address) infos.push({ label: "COMO CHEGAR", value: "Ver no mapa →", isLink: true });
 
   if (infos.length === 0) return null;
 
   return (
-    <section className="w-full bg-forest-900 text-surface py-6 md:py-8 border-t border-surface/10">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[8%]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-6 md:gap-12 lg:gap-16">
+    <section className="w-full bg-surface text-forest-900 border-b border-forest-900/10">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 py-12 lg:py-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x divide-forest-900/15">
           {infos.map((info, idx) => (
-            <div key={idx} className="flex flex-col">
-              <span className="font-body text-[10px] uppercase tracking-[0.2em] text-surface/50 mb-2">
+            <div key={idx} className={`flex flex-col lg:px-8 ${idx === 0 ? "lg:pl-0" : ""} ${idx === infos.length - 1 ? "lg:pr-0" : ""}`}>
+              <span className="font-body text-[10px] uppercase tracking-[0.2em] text-forest-900/50 mb-3">
                 {info.label}
               </span>
-              <span className="font-body text-sm text-surface/90">
-                {info.value}
-              </span>
+              {info.isLink ? (
+                <a href="#localizacao" className="font-body text-[14px] font-medium text-forest-900 hover:text-forest-900/70 transition-colors">
+                  {info.value}
+                </a>
+              ) : (
+                <span className="font-body text-[14px] text-forest-900/90 leading-relaxed max-w-[24ch]">
+                  {info.value}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -100,28 +111,30 @@ function UnitQuickInfo({ data }: { data: UnitData }) {
 // --- EXPERIENCE COMPONENT ---
 function UnitExperience({ data }: { data: UnitData }) {
   return (
-    <section className="relative w-full bg-surface text-forest-900 py-24 md:py-32">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-[8%] grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+    <section className="relative w-full bg-surface text-forest-900 py-20 md:py-28 lg:py-36">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
         
-        <div className="lg:col-span-5 flex flex-col justify-center">
-          <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.28em] text-forest-800 mb-8">
+        {/* Text Area (approx 38%) */}
+        <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
+          <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.28em] text-forest-800/60 mb-8">
             {data.experience.eyebrow}
           </p>
           <h2 className="text-title-editorial text-forest-900 mb-10 text-balance">
             {data.experience.title}
           </h2>
-          <p className="font-body text-[16px] md:text-[18px] text-forest-900/80 leading-[1.7] max-w-prose">
+          <p className="font-body text-[16px] md:text-[17px] text-forest-900/80 leading-[1.8] max-w-[460px]">
             {data.experience.text}
           </p>
         </div>
 
-        <div className="lg:col-span-7 relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden bg-forest-900/5">
+        {/* Image Area (approx 58%) */}
+        <div className="lg:col-span-7 relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden bg-forest-900/5 order-1 lg:order-2">
           <Image
             src={data.experience.image}
             alt={data.name}
             fill
             sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out"
+            className="object-cover object-center"
           />
         </div>
 
@@ -133,47 +146,47 @@ function UnitExperience({ data }: { data: UnitData }) {
 // --- GASTRONOMY COMPONENT ---
 function UnitGastronomy({ data }: { data: UnitData }) {
   return (
-    <section className="relative w-full bg-background text-forest-900 py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-[8%]">
+    <section className="relative w-full bg-background text-forest-900 py-20 md:py-28 lg:py-36 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16">
         
-        <div className="max-w-[600px] mb-16 md:mb-24">
-          <h2 className="text-title-editorial text-forest-900 mb-8">
+        <div className="max-w-[640px] mb-16 lg:mb-24">
+          <h2 className="text-title-editorial text-forest-900 mb-8 text-balance">
             {data.gastronomy.title}
           </h2>
-          <p className="font-body text-[16px] md:text-[18px] text-forest-900/80 leading-[1.7]">
+          <p className="font-body text-[16px] md:text-[17px] text-forest-900/80 leading-[1.8] max-w-[500px]">
             {data.gastronomy.text}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-auto md:h-[600px]">
-          {/* Main Image */}
-          <div className="md:col-span-7 relative w-full aspect-square md:aspect-auto md:h-full rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 h-auto lg:h-[760px]">
+          {/* Main Image (approx 65%) */}
+          <div className="lg:col-span-8 relative w-full aspect-[4/5] lg:aspect-auto lg:h-full rounded-[20px] overflow-hidden">
             <Image
               src={data.gastronomy.mainImage}
               alt="Detalhe de gastronomia"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 1024px) 100vw, 65vw"
               className="object-cover object-center"
             />
           </div>
           
-          {/* Secondary Images Stack */}
-          <div className="md:col-span-5 flex flex-col gap-6 md:gap-8 h-full">
-            <div className="relative w-full flex-1 min-h-[300px] rounded-2xl overflow-hidden">
+          {/* Secondary Images Stack (approx 35%) */}
+          <div className="lg:col-span-4 flex flex-col gap-5 lg:gap-8 h-full">
+            <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:flex-[7] rounded-[20px] overflow-hidden">
               <Image
                 src={data.gastronomy.secondaryImage1}
                 alt="Bebidas e atmosfera"
                 fill
-                sizes="(max-width: 768px) 100vw, 30vw"
+                sizes="(max-width: 1024px) 100vw, 35vw"
                 className="object-cover object-center"
               />
             </div>
-            <div className="relative w-full flex-1 min-h-[300px] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:flex-[5] rounded-[20px] overflow-hidden">
               <Image
                 src={data.gastronomy.secondaryImage2}
                 alt="Ambiente"
                 fill
-                sizes="(max-width: 768px) 100vw, 30vw"
+                sizes="(max-width: 1024px) 100vw, 35vw"
                 className="object-cover object-center"
               />
             </div>
@@ -190,33 +203,81 @@ function UnitGallery({ data }: { data: UnitData }) {
   if (!data.gallery || data.gallery.length === 0) return null;
 
   return (
-    <section className="relative w-full bg-forest-900 py-24 md:py-32">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[8%]">
-        <h2 className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-surface/50 mb-12 text-center md:text-left">
-          GALERIA · {data.name.toUpperCase()}
-        </h2>
+    <section className="relative w-full bg-forest-900 py-20 md:py-28 lg:py-36">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16">
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {data.gallery.map((img, idx) => {
-            // Make the first image larger in the grid for editorial asymmetry
-            const isLarge = idx === 0;
-            return (
-              <div 
-                key={idx} 
-                className={`relative w-full rounded-xl overflow-hidden bg-forest-800 ${
-                  isLarge ? "sm:col-span-2 sm:row-span-2 aspect-[4/3]" : "aspect-[4/5] sm:aspect-square"
-                }`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-            );
-          })}
+        <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-surface/40 mb-12 lg:mb-16 text-center lg:text-left">
+          {data.name.toUpperCase()} EM DETALHES
+        </p>
+        
+        {/* Editorial Asymmetric Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-6">
+          
+          {/* 1. Large Dominant Image */}
+          {data.gallery[0] && (
+            <div className="col-span-2 lg:col-span-8 aspect-[4/3] lg:aspect-auto lg:h-[640px] relative rounded-xl overflow-hidden group">
+              <Image
+                src={data.gallery[0].src}
+                alt={data.gallery[0].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
+              />
+            </div>
+          )}
+
+          {/* 2. Top Right Medium */}
+          {data.gallery[1] && (
+            <div className="col-span-1 lg:col-span-4 aspect-square lg:aspect-auto lg:h-[640px] relative rounded-xl overflow-hidden group">
+              <Image
+                src={data.gallery[1].src}
+                alt={data.gallery[1].alt}
+                fill
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
+              />
+            </div>
+          )}
+
+          {/* 3. Bottom Left Small */}
+          {data.gallery[2] && (
+            <div className="col-span-1 lg:col-span-3 aspect-square lg:aspect-[4/5] relative rounded-xl overflow-hidden group">
+              <Image
+                src={data.gallery[2].src}
+                alt={data.gallery[2].alt}
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
+              />
+            </div>
+          )}
+
+          {/* 4. Bottom Middle Small */}
+          {data.gallery[3] && (
+            <div className="col-span-2 lg:col-span-3 aspect-[4/3] sm:aspect-square lg:aspect-[4/5] relative rounded-xl overflow-hidden group">
+              <Image
+                src={data.gallery[3].src}
+                alt={data.gallery[3].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 25vw"
+                className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
+              />
+            </div>
+          )}
+
+          {/* 5. Bottom Right Medium */}
+          {data.gallery[4] && (
+            <div className="col-span-2 lg:col-span-6 aspect-[16/9] lg:aspect-auto lg:h-full relative rounded-xl overflow-hidden group">
+              <Image
+                src={data.gallery[4].src}
+                alt={data.gallery[4].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
+              />
+            </div>
+          )}
+
         </div>
       </div>
     </section>
@@ -225,53 +286,76 @@ function UnitGallery({ data }: { data: UnitData }) {
 
 // --- LOCATION / CONVERSION COMPONENT ---
 function UnitLocation({ data }: { data: UnitData }) {
+  // Use a specific image for the location block, falling back to a hero or experience image.
+  const locationImage = data.gallery?.[1]?.src || data.experience.image;
+
   return (
-    <section id="localizacao" className="w-full bg-surface py-24 md:py-32">
-      <div className="max-w-[800px] mx-auto px-6 md:px-[8%] text-center">
-        <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-forest-800 mb-8">
-          ENCONTRE O JUNDU
-        </p>
-        <h2 className="font-display text-forest-900 text-[2.5rem] md:text-[4rem] mb-12">
-          {data.name}
-        </h2>
+    <section id="localizacao" className="w-full bg-surface py-20 md:py-28 lg:py-36">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16">
         
-        <div className="flex flex-col gap-6 mb-16 items-center">
-          <div className="max-w-sm">
-            <p className="font-body text-sm uppercase tracking-[0.1em] text-forest-900/50 mb-2">Endereço</p>
-            <p className="font-body text-[16px] text-forest-900 font-medium">
-              {data.address ? data.address : data.location}
-            </p>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {data.hours && (
-            <div className="max-w-sm">
-              <p className="font-body text-sm uppercase tracking-[0.1em] text-forest-900/50 mb-2">Horário</p>
-              <p className="font-body text-[16px] text-forest-900 font-medium">
-                {data.hours}
-              </p>
+          {/* Left Column: Details & CTAs */}
+          <div className="flex flex-col max-w-[500px]">
+            <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-forest-800/50 mb-6">
+              ENCONTRE O JUNDU
+            </p>
+            <h2 className="font-display text-forest-900 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.1] mb-12">
+              {data.name}
+            </h2>
+            
+            <div className="flex flex-col gap-8 mb-16">
+              <div>
+                <p className="font-body text-[11px] uppercase tracking-[0.15em] text-forest-900/50 mb-2">Endereço</p>
+                <p className="font-body text-[15px] text-forest-900/90 leading-relaxed max-w-[32ch]">
+                  {data.address ? data.address : data.location}
+                </p>
+              </div>
+              
+              {data.hours && (
+                <div>
+                  <p className="font-body text-[11px] uppercase tracking-[0.15em] text-forest-900/50 mb-2">Horário</p>
+                  <p className="font-body text-[15px] text-forest-900/90">
+                    {data.hours}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+
+            <div className="flex flex-col sm:flex-row gap-5">
+              <a 
+                href={data.reserveUrl || "#"}
+                className="inline-flex justify-center items-center font-body text-[14px] font-bold bg-primary text-forest-900 px-8 py-4 rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto"
+              >
+                Reservar nesta unidade
+              </a>
+              
+              {data.address && (
+                <a 
+                  href={`https://maps.google.com/?q=${encodeURIComponent(data.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center font-body text-[14px] font-bold px-8 py-4 rounded-full border border-forest-900/20 text-forest-900 hover:bg-forest-900 hover:text-surface transition-colors w-full sm:w-auto"
+                >
+                  Como chegar
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Visual */}
+          <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden bg-forest-900/5">
+            <Image
+              src={locationImage}
+              alt={`Localização da unidade ${data.name}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+          </div>
+
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6" id="reserva">
-          <a 
-            href={data.reserveUrl || "#"}
-            className="font-body text-[14px] md:text-[15px] font-bold bg-primary text-forest-900 px-10 py-4 rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto"
-          >
-            Reservar nesta unidade
-          </a>
-          
-          {data.address && (
-            <a 
-              href={`https://maps.google.com/?q=${encodeURIComponent(data.address)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body text-[14px] md:text-[15px] font-bold px-10 py-4 rounded-full border border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-surface transition-colors w-full sm:w-auto"
-            >
-              Como chegar no Maps
-            </a>
-          )}
-        </div>
       </div>
     </section>
   );
@@ -279,26 +363,48 @@ function UnitLocation({ data }: { data: UnitData }) {
 
 // --- FAQ COMPONENT ---
 function UnitFaq({ data }: { data: UnitData }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   if (!data.faq || data.faq.length === 0) return null;
 
   return (
-    <section className="w-full bg-background py-24 md:py-32 border-t border-border">
-      <div className="max-w-[800px] mx-auto px-6 md:px-[8%]">
-        <h2 className="font-display text-forest-900 text-[2rem] md:text-[3rem] mb-12">
+    <section className="w-full bg-background py-20 md:py-28 lg:py-36 border-t border-border">
+      <div className="max-w-[800px] mx-auto px-5 md:px-10 lg:px-16">
+        <h2 className="font-display text-forest-900 text-[2rem] md:text-[2.5rem] lg:text-[3rem] mb-12 lg:mb-16">
           Perguntas Frequentes
         </h2>
         
-        <div className="flex flex-col divide-y divide-border">
-          {data.faq.map((item, idx) => (
-            <div key={idx} className="py-6">
-              <h3 className="font-body text-[16px] md:text-[18px] font-bold text-forest-900 mb-3">
-                {item.question}
-              </h3>
-              <p className="font-body text-[15px] md:text-[16px] text-forest-900/70 leading-relaxed">
-                {item.answer}
-              </p>
-            </div>
-          ))}
+        <div className="flex flex-col divide-y divide-forest-900/10 border-y border-forest-900/10">
+          {data.faq.map((item, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div key={idx} className="flex flex-col">
+                <button 
+                  className="py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-900 focus-visible:ring-offset-2 rounded-sm"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-body text-[16px] lg:text-[18px] text-forest-900 font-medium pr-8">
+                    {item.question}
+                  </span>
+                  <span className={`flex-shrink-0 text-forest-900/50 transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square"/>
+                    </svg>
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${
+                    isOpen ? "max-h-[300px] opacity-100 pb-8" : "max-h-0 opacity-0 pb-0"
+                  }`}
+                >
+                  <p className="font-body text-[15px] lg:text-[16px] text-forest-900/70 leading-[1.7] max-w-[640px]">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -310,40 +416,42 @@ function OtherUnits({ currentId }: { currentId: string }) {
   const others = Object.values(unitsData).filter(u => u.id !== currentId);
   
   return (
-    <section className="w-full bg-forest-900 py-24 md:py-32 border-t border-surface/10">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-[8%]">
-        <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-surface/50 mb-12 text-center md:text-left">
+    <section className="w-full bg-forest-900 py-20 md:py-28 lg:py-36">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16">
+        <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.25em] text-surface/40 mb-10 lg:mb-16">
           CONHEÇA TAMBÉM
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {others.map((unit) => (
             <Link 
               key={unit.id} 
               href={`/unidades/${unit.slug}`}
-              className="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-forest-800 flex items-end p-8 md:p-10"
+              className="group relative w-full aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/10] rounded-[24px] overflow-hidden bg-forest-800 flex items-end p-8 lg:p-12 outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-forest-900"
             >
               <Image
                 src={unit.hero.image}
                 alt={unit.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700 ease-out"
+                className="object-cover object-center opacity-70 group-hover:scale-[1.02] transition-transform duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/30 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/20 to-transparent opacity-90 transition-opacity duration-700" />
               
               <div className="relative z-10 flex justify-between items-end w-full">
                 <div>
-                  <p className="font-body text-xs text-primary uppercase tracking-[0.2em] mb-3">
-                    Unidade
+                  <p className="font-body text-[10px] text-primary uppercase tracking-[0.2em] mb-3 opacity-90">
+                    UNIDADE
                   </p>
-                  <h3 className="font-display text-surface text-3xl md:text-4xl">
+                  <h3 className="font-display text-surface text-3xl md:text-4xl lg:text-5xl">
                     {unit.name}
                   </h3>
                 </div>
                 
-                <div className="w-12 h-12 rounded-full border border-surface/30 flex items-center justify-center text-surface group-hover:bg-surface group-hover:text-forest-900 transition-colors">
-                  <span className="text-xl leading-none -rotate-45 block">→</span>
+                <div className="w-12 h-12 rounded-full border border-surface/20 flex items-center justify-center text-surface group-hover:bg-surface group-hover:text-forest-900 transition-colors group-hover:translate-x-1 duration-500">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" className="rotate-45">
+                    <path d="M5 19L19 5M19 5H8M19 5V16"/>
+                  </svg>
                 </div>
               </div>
             </Link>
@@ -362,7 +470,7 @@ export function UnitPage({ data }: { data: UnitData }) {
       
       <main>
         <UnitHero data={data} />
-        <UnitQuickInfo data={data} />
+        <UnitInformationRail data={data} />
         <UnitExperience data={data} />
         <UnitGastronomy data={data} />
         <UnitGallery data={data} />
