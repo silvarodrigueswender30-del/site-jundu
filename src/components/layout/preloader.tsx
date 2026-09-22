@@ -20,20 +20,24 @@ export function Preloader() {
         return;
       }
 
-      document.body.style.overflow = "hidden";
-
       const isMobile = window.innerWidth < 768;
 
-      // Usando os derivados otimizados localmente (faststart, an, yuv420p) para corrigir travamentos.
-      // Originais Supabase mantidos como fallback/referência:
-      // Desktop Original: https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/Animate_Jundu_logo_20260922154436.mp4
-      // Mobile Original: https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/Animating_Jundu_logo_1080p_20260922155148.mp4
+      // Desktop (>= 768px): pula o preloader inteiramente, sem travar scroll nem exibir nada.
+      // Tablet (768–1023px) cai neste mesmo ramo — sem preloader.
+      if (!isMobile) {
+        setTimeout(() => setIsVisible(false), 0);
+        sessionStorage.setItem("jundu-preloader-seen", "true");
+        return;
+      }
+
+      // — A partir daqui: somente mobile (<768px) —
+
+      document.body.style.overflow = "hidden";
+
+      // Vídeo mobile otimizado (faststart, sem áudio)
+      // Original: https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/Animating_Jundu_logo_1080p_20260922155148.mp4
       setTimeout(() => {
-        setVideoSrc(
-          isMobile
-            ? "/videos/preloader-mobile-optimized.mp4"
-            : "/videos/preloader-desktop-optimized.mp4"
-        );
+        setVideoSrc("/videos/preloader-mobile-optimized.mp4");
       }, 0);
 
       if (videoRef.current) {
@@ -63,11 +67,10 @@ export function Preloader() {
     if (!isPlaying) return;
 
     if (fallbackTimerRef.current) {
-      clearTimeout(fallbackTimerRef.current); // O vídeo tocou, podemos cancelar o fallback extremo
+      clearTimeout(fallbackTimerRef.current);
     }
 
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.innerWidth < 768;
 
     const endPreloader = () => {
       setIsFadingOut(true);
@@ -87,12 +90,9 @@ export function Preloader() {
       return () => clearTimeout(rmTimer);
     }
 
-    // Timeline fluida baseada no playback real
     const t1 = setTimeout(() => setShowEyebrow(true), 800);
     const t2 = setTimeout(() => setShowTitles(true), 1150);
-
-    // Fade-out trigger: 5.4s para desktop, 5.0s para mobile (garante o "Hold" visual da logo antes da saída)
-    const endTimer = setTimeout(endPreloader, isMobile ? 5000 : 5400);
+    const endTimer = setTimeout(endPreloader, 5000);
 
     return () => {
       clearTimeout(t1);
@@ -105,7 +105,7 @@ export function Preloader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col bg-[#03140E] lg:bg-[#06170F] transition-opacity duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+      className={`fixed inset-0 z-[9999] flex flex-col bg-[#03140E] transition-opacity duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
       style={{ pointerEvents: isFadingOut ? "none" : "auto" }}
@@ -127,37 +127,20 @@ export function Preloader() {
         />
       )}
 
-      {/* Overlay Mobile/Tablet (preserved) */}
+      {/* Overlay gradiente mobile */}
       <div
-        className="absolute inset-0 lg:hidden"
+        className="absolute inset-0"
         style={{
           background:
             "linear-gradient(to top, rgba(3, 20, 14, 0.65) 0%, rgba(3, 20, 14, 0.3) 25%, rgba(3, 20, 14, 0.05) 45%, transparent 65%)",
         }}
       />
 
-      {/* Overlays Desktop */}
-      <div className="absolute inset-0 hidden lg:block" style={{ background: "rgba(3, 18, 12, 0.15)" }} />
-      <div
-        className="absolute inset-0 hidden lg:block"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(3, 18, 12, 0.98) 0%, rgba(3, 18, 12, 0.90) 22%, rgba(3, 18, 12, 0.62) 38%, rgba(3, 18, 12, 0.30) 54%, rgba(3, 18, 12, 0.08) 70%, transparent 82%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 hidden lg:block"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(3, 18, 12, 0.68) 0%, rgba(3, 18, 12, 0.44) 24%, rgba(3, 18, 12, 0.12) 48%, transparent 68%)",
-        }}
-      />
-
-      {/* Editorial Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-end items-center lg:items-start pb-12 md:pb-[8%] lg:pb-[clamp(38px,6vh,72px)] px-6 md:px-8 lg:px-0 lg:pl-[max(64px,calc((100vw-1280px)/2))] text-center lg:text-left text-surface">
-        <div className="flex flex-col items-center lg:items-start lg:max-w-[620px]">
+      {/* Editorial Content — mobile only */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-end items-center pb-12 px-6 text-center text-surface">
+        <div className="flex flex-col items-center max-w-[340px]">
           <p
-            className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#C4D93C] mb-4 transition-all duration-[700ms] ease-out ${
+            className={`font-body text-[10px] uppercase tracking-[0.25em] text-[#C4D93C] mb-4 transition-all duration-[700ms] ease-out ${
               showEyebrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             }`}
           >
@@ -165,21 +148,15 @@ export function Preloader() {
           </p>
 
           <p
-            className={`font-display text-[28px] md:text-[42px] lg:text-[48px] leading-[1.05] lg:leading-[1] mb-5 text-[#F3F4F0] transition-all duration-[800ms] ease-out ${
+            className={`font-display text-[28px] leading-[1.05] mb-5 text-[#F3F4F0] transition-all duration-[800ms] ease-out ${
               showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <span className="lg:hidden">
-              Uma história que faz parte
-              <br className="hidden md:block" /> de Ubatuba.
-            </span>
-            <span className="hidden lg:inline">
-              Uma história que faz <br /> parte de Ubatuba.
-            </span>
+            Uma história que faz parte de Ubatuba.
           </p>
 
           <p
-            className={`font-body text-[15px] md:text-[16px] text-[#F3F4F0]/80 max-w-[560px] lg:max-w-[580px] leading-relaxed transition-all duration-[900ms] ease-out delay-[400ms] ${
+            className={`font-body text-[15px] text-[#F3F4F0]/80 max-w-[300px] leading-relaxed transition-all duration-[900ms] ease-out delay-[400ms] ${
               showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >

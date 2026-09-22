@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/navigation/site-header";
 import { StickyMobileCTA } from "@/components/navigation/sticky-mobile-cta";
 import { HeroCinematic } from "@/components/sections/hero-cinematic";
+import { UnitsMarquee } from "@/components/layout/units-marquee";
 import { BrandManifesto } from "@/components/sections/brand-manifesto";
 import { BrandTimeline } from "@/components/sections/brand-timeline";
 import { PeopleBehindJundu } from "@/components/sections/people-behind-jundu";
@@ -23,6 +24,7 @@ export default function Home() {
       
       <main className="min-h-screen overflow-x-hidden">
         <HeroCinematic />
+        <UnitsMarquee />
         <BrandManifesto />
         <BrandTimeline />
         <PeopleBehindJundu />
