@@ -14,7 +14,7 @@ export function Preloader() {
     if (typeof window !== "undefined") {
       const hasSeen = sessionStorage.getItem("jundu-preloader-seen");
       if (hasSeen) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+
         setIsVisible(false);
         return;
       }
@@ -39,7 +39,7 @@ export function Preloader() {
         setIsFadingOut(true);
         sessionStorage.setItem("jundu-preloader-seen", "true");
         setTimeout(() => {
-          // eslint-disable-next-line react-hooks/set-state-in-effect
+
           setIsVisible(false);
           document.body.style.overflow = "";
         }, 800);
@@ -73,7 +73,7 @@ export function Preloader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#03140E] transition-opacity duration-[800ms] ease-in-out ${
+      className={`fixed inset-0 z-[9999] flex flex-col bg-[#03140E] lg:bg-[#06170F] transition-opacity duration-[800ms] ease-in-out ${
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
       style={{ pointerEvents: isFadingOut ? "none" : "auto" }}
@@ -83,7 +83,7 @@ export function Preloader() {
         <video
           ref={videoRef}
           src={videoSrc}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover lg:object-contain"
           autoPlay
           muted
           playsInline
@@ -91,43 +91,66 @@ export function Preloader() {
         />
       )}
 
-      {/* Overlay to ensure text readability without hiding the scenario */}
+      {/* Overlay Mobile/Tablet (preserved) */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 lg:hidden"
         style={{
           background:
             "linear-gradient(to top, rgba(3, 20, 14, 0.65) 0%, rgba(3, 20, 14, 0.3) 25%, rgba(3, 20, 14, 0.05) 45%, transparent 65%)",
         }}
       />
 
+      {/* Overlays Desktop */}
+      <div className="absolute inset-0 hidden lg:block" style={{ background: "rgba(3, 18, 12, 0.15)" }} />
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(3, 18, 12, 0.96) 0%, rgba(3, 18, 12, 0.84) 18%, rgba(3, 18, 12, 0.58) 34%, rgba(3, 18, 12, 0.26) 50%, rgba(3, 18, 12, 0.05) 68%, transparent 80%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(3, 18, 12, 0.68) 0%, rgba(3, 18, 12, 0.44) 24%, rgba(3, 18, 12, 0.12) 48%, transparent 68%)",
+        }}
+      />
+
       {/* Editorial Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-end items-center pb-12 md:pb[-8%] px-6 md:px-8 text-center text-surface">
-        <p
-          className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#C4D93C] mb-4 transition-all duration-[700ms] ease-out ${
-            showEyebrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-          }`}
-        >
-          DESDE 2013 · UBATUBA
-        </p>
+      <div className="relative z-10 w-full h-full flex flex-col justify-end items-center lg:items-start pb-12 md:pb[-8%] lg:pb-[clamp(38px,6vh,72px)] px-6 md:px-8 lg:px-0 lg:pl-[max(64px,calc((100vw-1280px)/2))] text-center lg:text-left text-surface">
+        <div className="flex flex-col items-center lg:items-start lg:max-w-[620px]">
+          <p
+            className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#C4D93C] mb-4 transition-all duration-[700ms] ease-out ${
+              showEyebrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            }`}
+          >
+            DESDE 2013 · UBATUBA
+          </p>
 
-        <p
-          className={`font-display text-[28px] md:text-[42px] leading-[1.05] mb-5 text-surface transition-all duration-[800ms] ease-out ${
-            showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
-        >
-          Uma história que faz parte
-          <br className="hidden md:block" /> de Ubatuba.
-        </p>
+          <p
+            className={`font-display text-[28px] md:text-[42px] lg:text-[48px] leading-[1.05] lg:leading-[1] mb-5 text-[#F3F4F0] transition-all duration-[800ms] ease-out ${
+              showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            <span className="lg:hidden">
+              Uma história que faz parte
+              <br className="hidden md:block" /> de Ubatuba.
+            </span>
+            <span className="hidden lg:inline">
+              Uma história que faz <br /> parte de Ubatuba.
+            </span>
+          </p>
 
-        <p
-          className={`font-body text-[15px] md:text-[16px] text-[#F3F4F0]/80 max-w-[560px] leading-relaxed transition-all duration-[900ms] ease-out delay-[150ms] ${
-            showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          Gastronomia, hospitalidade e encontros que atravessam mais de uma década.
-        </p>
+          <p
+            className={`font-body text-[15px] md:text-[16px] text-[#F3F4F0]/80 max-w-[560px] lg:max-w-[580px] leading-relaxed transition-all duration-[900ms] ease-out delay-[150ms] ${
+              showTitles ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            Gastronomia, hospitalidade e encontros que atravessam mais de uma década.
+          </p>
+        </div>
       </div>
     </div>
   );
 }
-
