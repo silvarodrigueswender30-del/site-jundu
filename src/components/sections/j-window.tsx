@@ -10,9 +10,9 @@ export function JWindow() {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = (siteData.sections as any).jWindow || {
-    eyebrow: "SÍMBOLO VIVO",
-    title: "O Jundu também se\nrevela nos detalhes.",
-    text: "No recorte, na matéria, na atmosfera e no gesto, a identidade aparece de forma sutil — como parte natural da experiência.",
+    eyebrow: "UMA MESMA ESSÊNCIA",
+    title: "Muda o cenário.\nA sensação permanece.",
+    text: "Entre praia, cidade e natureza, cada endereço encontra sua própria atmosfera — mantendo o mesmo cuidado, acolhimento e jeito de receber.",
     image: "/images/architecture/jundu-material-light.avif",
     alt: "Fotografia de detalhe do bar Jundu vista através da letra J",
   };
