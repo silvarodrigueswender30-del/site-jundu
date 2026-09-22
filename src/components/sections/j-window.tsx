@@ -11,10 +11,10 @@ export function JWindow() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = (siteData.sections as any).jWindow || {
     eyebrow: "SÍMBOLO VIVO",
-    title: "O 'J' se torna uma\njanela para o Jundu.",
-    text: "A identidade aparece no recorte, na transição e no movimento — sem repetir a logo inteira.",
-    image: "/images/hero/jundu-hero-desktop.webp",
-    alt: "Janela editorial J",
+    title: "O Jundu também se\nrevela nos detalhes.",
+    text: "No recorte, na matéria, na atmosfera e no gesto, a identidade aparece de forma sutil — como parte natural da experiência.",
+    image: "/images/architecture/jundu-material-light.avif",
+    alt: "Fotografia de detalhe do bar Jundu vista através da letra J",
   };
 
   useEffect(() => {
@@ -53,6 +53,23 @@ export function JWindow() {
       data-section="j-window"
       className="relative w-full bg-background pt-[104px] pb-[112px] lg:pt-[128px] lg:pb-[136px] overflow-hidden flex flex-col justify-center min-h-[700px]"
     >
+      <style>{`
+        @keyframes j-window-pan {
+          0% { transform: scale(1.05) translate(0%, 0%); }
+          100% { transform: scale(1.05) translate(-1.5%, 1.5%); }
+        }
+        .j-window-image-pan {
+          animation: j-window-pan 20s ease-in-out infinite alternate;
+          transform-origin: center center;
+          transform-box: fill-box;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .j-window-image-pan {
+            animation: none;
+            transform: scale(1.05);
+          }
+        }
+      `}</style>
       <div className="w-full max-w-[1280px] mx-auto px-6 lg:px-8">
         
         <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -76,9 +93,11 @@ export function JWindow() {
                 letterSpacing: "-0.02em",
               }}
             >
-              <span className="lg:whitespace-nowrap">O &ldquo;J&rdquo; se torna uma</span>
-              <br />
-              <span className="lg:whitespace-nowrap">janela para o Jundu.</span>
+              {data.title.split('\n').map((line: string, i: number) => (
+                <span key={i} className="block lg:whitespace-nowrap">
+                  {line}
+                </span>
+              ))}
             </h2>
             <p className="font-body text-[16px] md:text-[17px] text-forest-900/80 max-w-[38ch] leading-[1.6]">
               {data.text}
@@ -120,13 +139,15 @@ export function JWindow() {
                     </text>
                   </clipPath>
                 </defs>
-                <image 
-                  href={data.image} 
-                  width="100%" 
-                  height="100%" 
-                  preserveAspectRatio="xMidYMid slice" 
-                  clipPath="url(#j-mask)" 
-                />
+                <g clipPath="url(#j-mask)">
+                  <image
+                    className="j-window-image-pan"
+                    href={data.image}
+                    width="100%"
+                    height="100%"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </g>
               </svg>
             </div>
 

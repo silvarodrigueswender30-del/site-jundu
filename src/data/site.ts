@@ -172,10 +172,10 @@ export const siteData = {
     },
     jWindow: {
       eyebrow: "SÍMBOLO VIVO",
-      title: 'O "J" se torna uma\njanela para o Jundu.',
-      text: "A identidade aparece no recorte, na transição e no movimento — sem repetir a logo inteira.",
-      image: "/images/hero/jundu-hero-desktop.webp",
-      alt: "Fotografia do ambiente Jundu vista através da letra J",
+      title: 'O Jundu também se\nrevela nos detalhes.',
+      text: "No recorte, na matéria, na atmosfera e no gesto, a identidade aparece de forma sutil — como parte natural da experiência.",
+      image: "/images/architecture/jundu-material-light.avif",
+      alt: "Fotografia de detalhe do bar Jundu vista através da letra J",
     },
     gastronomyPillars: {
       eyebrow: "GASTRONOMIA & COQUETELARIA",
