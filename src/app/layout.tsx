@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Preloader } from "@/components/layout/preloader";
 
 const elsie = localFont({
   src: "../../src/fonts/elsie-regular.woff2",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${elsie.variable} ${arimo.variable} antialiased`}
       >
+        <Preloader />
         {children}
       </body>
     </html>
