@@ -115,7 +115,7 @@ export function Preloader() {
         <video
           ref={videoRef}
           src={videoSrc}
-          className={`absolute inset-0 w-full h-full object-cover lg:object-contain transition-opacity duration-[350ms] ${
+          className={`absolute inset-0 w-full h-full object-cover [object-position:center_35%] transition-opacity duration-[350ms] ${
             isPlaying ? "opacity-100" : "opacity-0"
           }`}
           autoPlay
@@ -142,7 +142,7 @@ export function Preloader() {
         className="absolute inset-0 hidden lg:block"
         style={{
           background:
-            "linear-gradient(to top, rgba(3, 18, 12, 0.96) 0%, rgba(3, 18, 12, 0.84) 18%, rgba(3, 18, 12, 0.58) 34%, rgba(3, 18, 12, 0.26) 50%, rgba(3, 18, 12, 0.05) 68%, transparent 80%)",
+            "linear-gradient(to top, rgba(3, 18, 12, 0.98) 0%, rgba(3, 18, 12, 0.90) 22%, rgba(3, 18, 12, 0.62) 38%, rgba(3, 18, 12, 0.30) 54%, rgba(3, 18, 12, 0.08) 70%, transparent 82%)",
         }}
       />
       <div
