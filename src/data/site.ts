@@ -281,15 +281,15 @@ export const siteData = {
           id: "itagua",
           name: "Itaguá",
           description: "O charme e a tradição no coração da cidade.",
-          image: "/images/stories/story-atmosfera.webp",
+          image: "/images/units/jundu-unit-itagua.avif",
           alt: "Ambiente da unidade Jundu Itaguá",
-          objectPosition: "center 40%"
+          objectPosition: "center center"
         },
         {
           id: "prumirim",
           name: "Prumirim",
           description: "A natureza e o mar se encontram à sua mesa.",
-          image: "/images/stories/story-gastronomia.webp",
+          image: "/images/units/jundu-unit-prumirim.avif",
           alt: "Ambiente da unidade Jundu Prumirim",
           objectPosition: "center center"
         },
@@ -297,9 +297,9 @@ export const siteData = {
           id: "praia-grande",
           name: "Praia Grande",
           description: "Energia vibrante em uma das praias mais queridas.",
-          image: "/images/stories/story-atendimento.webp",
+          image: "/images/units/jundu-unit-praia-grande.avif",
           alt: "Ambiente da unidade Jundu Praia Grande",
-          objectPosition: "center 30%"
+          objectPosition: "center center"
         }
       ]
     },
