@@ -5,10 +5,11 @@ export function HeroCinematic() {
   return (
     <section className="relative w-full h-[100svh] min-h-[760px] flex items-center overflow-hidden bg-forest-900">
       
-      {/* Mídia de Fundo */}
       <HeroVideo 
+        src="https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/video-home-2.mp4"
         posterDesktop="/images/hero/jundu-hero-desktop.avif" 
         posterMobile="/images/hero/jundu-hero-mobile.avif"
+        disableOnMobile={true}
       />
 
       {/* Conteúdo Principal */}

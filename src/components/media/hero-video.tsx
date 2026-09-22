@@ -6,9 +6,10 @@ interface HeroVideoProps {
   src?: string;
   posterDesktop: string;
   posterMobile: string;
+  disableOnMobile?: boolean;
 }
 
-export function HeroVideo({ src, posterDesktop, posterMobile }: HeroVideoProps) {
+export function HeroVideo({ src, posterDesktop, posterMobile, disableOnMobile = false }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [shouldPlay, setShouldPlay] = useState(false);
@@ -87,7 +88,7 @@ export function HeroVideo({ src, posterDesktop, posterMobile }: HeroVideoProps) 
         />
       </picture>
       
-      {src && !reducedMotion && (
+      {src && !reducedMotion && !(disableOnMobile && isMobile) && (
         <video
           ref={videoRef}
           src={src}
@@ -97,6 +98,7 @@ export function HeroVideo({ src, posterDesktop, posterMobile }: HeroVideoProps) 
           loop
           playsInline
           aria-hidden="true"
+          preload="metadata"
         />
       )}
       
