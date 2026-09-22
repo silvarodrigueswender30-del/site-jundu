@@ -9,7 +9,6 @@ export function HeroCinematic() {
         src="https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/video-home-2.mp4"
         posterDesktop="/images/hero/jundu-hero-desktop.avif" 
         posterMobile="/images/hero/jundu-hero-mobile.avif"
-        disableOnMobile={true}
       />
 
       {/* Conteúdo Principal */}
@@ -18,7 +17,7 @@ export function HeroCinematic() {
         <div className="w-full md:w-[58%] text-surface pt-16 md:pt-0">
           
           <p className="font-body text-xs md:text-sm uppercase tracking-widest text-sage-300 mb-6 drop-shadow-md animate-[fade-in-up_600ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0" style={{ animationDelay: '100ms' }}>
-            Filme de abertura · Experiência Jundu
+            RESERVE SUA EXPERIÊNCIA · CONHEÇA O JUNDU
           </p>
           
           {/* Título Monumental com Elsie */}
@@ -43,22 +42,26 @@ export function HeroCinematic() {
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 opacity-0 animate-[fade-in-up_750ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '340ms' }}>
             <a 
-              href={siteData.ctas.primary.href}
+              href="/reservas"
               className="font-body text-base font-bold bg-primary text-forest-900 px-8 py-3.5 rounded-full hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-surface transition-colors w-full sm:w-auto text-center"
             >
-              {siteData.ctas.primary.label}
+              Reservar uma mesa
             </a>
             
-            <button className="flex items-center gap-4 group focus:outline-none rounded-full pr-4">
-              <span className="w-12 h-12 rounded-full border border-surface/30 backdrop-blur-sm flex items-center justify-center text-surface group-hover:bg-surface group-hover:text-forest-900 transition-colors group-focus-visible:ring-2 group-focus-visible:ring-surface">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            <a 
+              href="#unidades"
+              className="flex items-center gap-3 group focus:outline-none rounded-full py-2 pr-4"
+            >
+              <span className="w-10 h-10 rounded-full border border-surface/30 backdrop-blur-sm flex items-center justify-center text-surface group-hover:bg-surface group-hover:text-forest-900 transition-colors group-focus-visible:ring-2 group-focus-visible:ring-surface">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </span>
               <span className="font-body text-sm font-bold text-surface tracking-wide group-hover:text-primary transition-colors drop-shadow-md">
-                {siteData.ctas.video.label}
+                Conhecer as unidades
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
