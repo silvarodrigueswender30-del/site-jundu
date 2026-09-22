@@ -151,20 +151,20 @@ export const siteData = {
       text: "Madeira, luz, vegetação e paisagem se encontram em ambientes pensados para acolher, permanecer e criar memória.",
       images: [
         {
-          src: "/images/stories/story-atmosfera.webp",
+          src: "/images/architecture/jundu-architecture-presence.avif",
           alt: "Interior do restaurante Jundu com estrutura de madeira e iluminação acolhedora",
           caption: "ARQUITETURA & PRESENÇA",
-          objectPosition: "center 40%",
+          objectPosition: "center center",
         },
         {
-          src: "/images/stories/story-atendimento.webp",
-          alt: "Colaborador do Jundu servindo os convidados",
+          src: "/images/architecture/jundu-material-light.avif",
+          alt: "Detalhe do bar com textura de madeira, teto tramado e luminárias",
           caption: "MATÉRIA & LUZ",
-          objectPosition: "center 30%",
+          objectPosition: "center center",
         },
         {
-          src: "/images/stories/story-gastronomia.webp",
-          alt: "Detalhe da gastronomia servida à mesa",
+          src: "/images/architecture/jundu-landscape-meeting.avif",
+          alt: "Vista aberta do interior do restaurante para a praia e o mar",
           caption: "PAISAGEM & ENCONTRO",
           objectPosition: "center center",
         },
