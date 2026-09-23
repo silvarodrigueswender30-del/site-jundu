@@ -89,16 +89,24 @@ export const unitsData: Record<string, UnitData> = {
     
     faq: [
       {
-        question: "Precisa fazer reserva?",
-        answer: "Recomendamos fazer reserva para garantir sua mesa, especialmente aos finais de semana e feriados."
+        question: "Onde fica o Jundu Itaguá?",
+        answer: "O Jundu Itaguá está localizado na Av. Leovigildo Dias Vieira, 810, no bairro do Itaguá, em Ubatuba - SP."
       },
       {
-        question: "Qual é o horário desta unidade?",
+        question: "Qual é o horário de funcionamento do Jundu Itaguá?",
         answer: "A unidade Itaguá funciona de terça a domingo, das 12h às 23h."
       },
       {
-        question: "Onde fica o Jundu Itaguá?",
-        answer: "Estamos localizados na Av. Leovigildo Dias Vieira, 810, no bairro do Itaguá, em Ubatuba - SP."
+        question: "Precisa fazer reserva no Jundu Itaguá?",
+        answer: "Para garantir melhor atendimento, recomendamos consultar a disponibilidade da unidade pelo canal oficial de reservas."
+      },
+      {
+        question: "Como fazer uma reserva no Jundu Itaguá?",
+        answer: "Você pode consultar disponibilidade e fazer sua reserva pelo canal oficial indicado nesta página."
+      },
+      {
+        question: "Como chegar ao Jundu Itaguá?",
+        answer: "Utilize o botão “Como chegar” nesta página para abrir a localização oficial da unidade no Google Maps."
       }
     ],
     
@@ -151,11 +159,23 @@ export const unitsData: Record<string, UnitData> = {
     faq: [
       {
         question: "Onde fica o Jundu Prumirim?",
-        answer: "O Praia Bar Prumirim fica localizado na Rodovia Rio-Santos, Km 33, Praia do Prumirim, Ubatuba - SP."
+        answer: "O Jundu Prumirim está localizado na Rodovia Rio-Santos, Km 33, Praia do Prumirim, Ubatuba - SP."
       },
       {
-        question: "Precisa fazer reserva?",
-        answer: "Recomendamos confirmar a disponibilidade e fazer reserva, especialmente na alta temporada, para garantir a melhor experiência."
+        question: "O Jundu Prumirim é um restaurante pé na areia?",
+        answer: "Sim. A unidade de Prumirim está integrada à praia e combina gastronomia, natureza e a paisagem do litoral de Ubatuba."
+      },
+      {
+        question: "Precisa fazer reserva no Jundu Prumirim?",
+        answer: "Para garantir melhor atendimento, recomendamos consultar a disponibilidade da unidade pelo canal oficial de reservas."
+      },
+      {
+        question: "Como fazer uma reserva no Jundu Prumirim?",
+        answer: "Você pode consultar disponibilidade e fazer sua reserva pelo canal oficial indicado nesta página."
+      },
+      {
+        question: "Como chegar ao Jundu Prumirim?",
+        answer: "Utilize o botão “Como chegar” nesta página para abrir a localização oficial da unidade no Google Maps."
       }
     ],
     
@@ -206,12 +226,24 @@ export const unitsData: Record<string, UnitData> = {
     
     faq: [
       {
-        question: "A unidade recebe eventos?",
+        question: "Onde fica o Jundu Praia Grande?",
+        answer: "O Espaço Jundu Gastrobar está localizado na Praia Grande, em Ubatuba - SP."
+      },
+      {
+        question: "O Jundu Praia Grande recebe eventos?",
         answer: "Sim, o Espaço Jundu Gastrobar é o nosso maior restaurante e possui estrutura pensada para acomodar comemorações e confraternizações."
       },
       {
-        question: "Onde fica o Jundu Praia Grande?",
-        answer: "Estamos localizados na Praia Grande, em Ubatuba, em um amplo espaço pronto para receber você e seus convidados."
+        question: "Precisa fazer reserva no Jundu Praia Grande?",
+        answer: "Para garantir melhor atendimento, recomendamos consultar a disponibilidade da unidade pelo canal oficial de reservas."
+      },
+      {
+        question: "Como fazer uma reserva no Jundu Praia Grande?",
+        answer: "Você pode consultar disponibilidade e fazer sua reserva pelo canal oficial indicado nesta página."
+      },
+      {
+        question: "Como chegar ao Jundu Praia Grande?",
+        answer: "Utilize o botão “Como chegar” nesta página para abrir a localização oficial da unidade no Google Maps."
       }
     ],
     

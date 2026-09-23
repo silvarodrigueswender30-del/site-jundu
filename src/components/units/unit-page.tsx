@@ -368,37 +368,57 @@ function UnitFaq({ data }: { data: UnitData }) {
   if (!data.faq || data.faq.length === 0) return null;
 
   return (
-    <section className="w-full bg-background py-20 md:py-28 lg:py-36 border-t border-border">
-      <div className="max-w-[800px] mx-auto px-5 md:px-10 lg:px-16">
-        <h2 className="font-display text-forest-900 text-[2rem] md:text-[2.5rem] lg:text-[3rem] mb-12 lg:mb-16">
-          Perguntas Frequentes
-        </h2>
+    <section className="w-full bg-surface py-16 md:py-24 lg:py-32 border-t border-forest-900/10">
+      <div className="max-w-[960px] mx-auto px-5 md:px-10 lg:px-16">
         
-        <div className="flex flex-col divide-y divide-forest-900/10 border-y border-forest-900/10">
+        <div className="mb-12 md:mb-16">
+          <p className="font-body text-[11px] md:text-[12px] uppercase tracking-[0.25em] text-forest-800 mb-4">
+            DÚVIDAS SOBRE A UNIDADE
+          </p>
+          <h2 className="font-display text-forest-900 text-[2rem] md:text-[2.5rem] lg:text-[42px] leading-tight max-w-[700px]">
+            Perguntas frequentes sobre o {data.name}
+          </h2>
+        </div>
+        
+        <div className="flex flex-col border-t border-forest-900/15">
           {data.faq.map((item, idx) => {
             const isOpen = openIndex === idx;
+            const panelId = `faq-panel-${data.id}-${idx}`;
+            const buttonId = `faq-button-${data.id}-${idx}`;
+            
             return (
-              <div key={idx} className="flex flex-col">
+              <div key={idx} className="flex flex-col border-b border-forest-900/15">
                 <button 
-                  className="py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-900 focus-visible:ring-offset-2 rounded-sm"
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  id={buttonId}
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  className="w-full py-5 md:py-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-900 focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-sm min-h-[56px] lg:min-h-[64px]"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
                 >
-                  <span className="font-body text-[16px] lg:text-[18px] text-forest-900 font-medium pr-8">
+                  <span className="font-body text-[16px] md:text-[18px] lg:text-[20px] text-forest-900 font-medium pr-8 leading-snug">
                     {item.question}
                   </span>
-                  <span className={`flex-shrink-0 text-forest-900/50 transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square"/>
-                    </svg>
+                  <span className={`flex-shrink-0 text-forest-900 transition-transform duration-300 ease-out ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                    {isOpen ? (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M5 12h14" strokeLinecap="square"/>
+                      </svg>
+                    ) : (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M12 5v14M5 12h14" strokeLinecap="square"/>
+                      </svg>
+                    )}
                   </span>
                 </button>
                 <div 
-                  className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${
-                    isOpen ? "max-h-[300px] opacity-100 pb-8" : "max-h-0 opacity-0 pb-0"
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(.22,1,.36,1)] ${
+                    isOpen ? "max-h-[400px] opacity-100 pb-6 md:pb-8" : "max-h-0 opacity-0 pb-0"
                   }`}
                 >
-                  <p className="font-body text-[15px] lg:text-[16px] text-forest-900/70 leading-[1.7] max-w-[640px]">
+                  <p className="font-body text-[15px] lg:text-[16px] text-forest-900/80 leading-[1.65] max-w-[720px]">
                     {item.answer}
                   </p>
                 </div>
@@ -406,6 +426,31 @@ function UnitFaq({ data }: { data: UnitData }) {
             );
           })}
         </div>
+
+        <div className="mt-16 md:mt-20 pt-8 border-t border-forest-900/10 flex flex-col items-start">
+          <p className="font-body text-[15px] lg:text-[16px] text-forest-900 font-medium mb-6">
+            Ainda quer falar com a equipe?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a 
+              href={data.reserveUrl || "#localizacao"}
+              className="inline-flex justify-center items-center font-body text-[14px] font-bold bg-primary text-forest-900 px-8 py-3.5 rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto text-center"
+            >
+              Reservar uma mesa
+            </a>
+            {data.address && (
+              <a 
+                href={`https://maps.google.com/?q=${encodeURIComponent(data.address)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center items-center font-body text-[14px] font-bold px-8 py-3.5 rounded-full border border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-surface transition-colors w-full sm:w-auto text-center"
+              >
+                Como chegar
+              </a>
+            )}
+          </div>
+        </div>
+
       </div>
     </section>
   );
