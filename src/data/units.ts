@@ -68,25 +68,24 @@ export const unitsData: Record<string, UnitData> = {
       eyebrow: "ITAGUÁ",
       title: "Entre a cidade, a mesa e os encontros.",
       text: "Localizado no coração de Ubatuba, o Jundu Itaguá traz uma atmosfera sofisticada e acolhedora, ideal para quem busca uma vivência gastronômica completa. Com um projeto arquitetônico que valoriza elementos naturais, criamos o ambiente perfeito para almoços tranquilos, jantares memoráveis e encontros ao longo do dia.",
-      image: "/images/history/jundu-history-itagua.avif",
+      image: "/images/units/itagua/itagua-ambiente-lounge.avif",
       video: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/StorySaver.to_AQPLuGdvItXugImVeuObTHcGY6_WR5cMLT3BL7bgKFyJIj6KYxsRcpqqdkylS-20KR-0d2XaLUMRkeZ0yLCZo7iJ_jmg4gIljIMme94.mp4"
     },
     
     gastronomy: {
       title: "Sabores que encontram o lugar.",
       text: "Nossa cozinha une ingredientes frescos a técnicas apuradas, sempre com respeito à origem. Para acompanhar, a coquetelaria autoral do nosso bar transforma ervas, frutas e destilados em criações únicas, perfeitas para o clima do Itaguá.",
-      mainImage: "/images/editorial/jundu-origem-comida.avif",
-      secondaryImage1: "/images/editorial/jundu-origem-drink.avif",
-      secondaryImage2: "/images/architecture/jundu-material-light.avif"
+      mainImage: "/images/units/itagua/itagua-gastronomia-principal.avif",
+      secondaryImage1: "/images/units/itagua/itagua-coquetelaria.avif",
+      secondaryImage2: "/images/units/itagua/itagua-ambiente-lounge.avif"
     },
     
     gallery: [
-      { src: "/images/units/jundu-unit-itagua.avif", alt: "Ambiente principal da unidade Itaguá" },
-      { src: "/images/history/jundu-history-itagua.avif", alt: "Detalhe do Lounge Bar Itaguá" },
-      { src: "/images/architecture/jundu-material-light.avif", alt: "Bar iluminado no Jundu Itaguá" },
-      { src: "/images/editorial/jundu-origem-comida.avif", alt: "Prato autoral" },
-      { src: "/images/people/jundu-people-a.avif", alt: "Hospitalidade e equipe em ação" },
-      { src: "/images/architecture/jundu-architecture-presence.avif", alt: "Arquitetura e texturas de madeira no interior" }
+      { src: "/images/units/itagua/itagua-galeria-01.avif", alt: "Atmosfera e experiência gastronômica no Jundu Itaguá" },
+      { src: "/images/units/itagua/itagua-galeria-02.avif", alt: "Detalhes do salão e arquitetura do Jundu Itaguá" },
+      { src: "/images/units/itagua/itagua-galeria-03.avif", alt: "Experiência de bebidas e coquetelaria autoral" },
+      { src: "/images/units/itagua/itagua-galeria-04.avif", alt: "Momentos e gastronomia no Jundu Itaguá" },
+      { src: "/images/units/itagua/itagua-galeria-05.avif", alt: "Prato especial da cozinha autoral Jundu" }
     ],
     
     faq: [
