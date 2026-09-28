@@ -3,7 +3,7 @@ import { HeroVideo } from "../media/hero-video";
 
 export function HeroCinematic() {
   return (
-    <section className="relative w-full h-[100svh] min-h-[760px] flex items-center overflow-hidden bg-forest-900">
+    <section className="relative w-full min-h-[100svh] flex flex-col justify-between overflow-hidden bg-forest-900 pt-24 pb-8 md:pt-28 md:pb-10">
       
       <HeroVideo 
         src="https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/video-home-2.mp4"
@@ -13,8 +13,8 @@ export function HeroCinematic() {
 
       {/* Conteúdo Principal */}
       {/* Container left-aligned at ~8% desktop */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-[8%] flex flex-col justify-end pb-32 md:justify-center md:pb-0 h-full">
-        <div className="w-full md:w-[58%] text-surface pt-16 md:pt-0">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-[8%] flex-1 flex flex-col justify-center my-auto">
+        <div className="w-full md:w-[58%] text-surface">
           
           <p className="font-body text-xs md:text-sm uppercase tracking-widest text-sage-300 mb-6 drop-shadow-md animate-[fade-in-up_600ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0" style={{ animationDelay: '100ms' }}>
             RESERVE SUA EXPERIÊNCIA · CONHEÇA O JUNDU
@@ -67,7 +67,7 @@ export function HeroCinematic() {
       </div>
 
       {/* Indicação de Unidades e Scroll (Desktop) */}
-      <div className="absolute bottom-10 left-0 w-full z-10 hidden md:block opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '500ms' }}>
+      <div className="relative z-10 w-full hidden md:block pt-8 mt-auto opacity-0 animate-[fade-in-up_800ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '500ms' }}>
         <div className="max-w-[1440px] mx-auto px-[8%] flex justify-between items-end text-surface">
           <p className="font-body text-[11px] tracking-widest uppercase text-surface/60">
             {siteData.units.join(" · ")}
@@ -76,7 +76,7 @@ export function HeroCinematic() {
           {/* Scroll Autoral Discreto */}
           <div className="flex flex-col items-center gap-3 opacity-60">
             <span className="font-body text-[10px] tracking-widest uppercase">Descobrir</span>
-            <span className="w-px h-16 bg-gradient-to-b from-surface/80 to-transparent"></span>
+            <span className="w-px h-14 bg-gradient-to-b from-surface/80 to-transparent"></span>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { StickyMobileCTA } from "@/components/navigation/sticky-mobile-cta";
 // --- HERO COMPONENT ---
 function UnitHero({ data }: { data: UnitData }) {
   return (
-    <section className="relative w-full h-[85svh] min-h-[600px] flex items-center overflow-hidden bg-forest-900">
+    <section className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-forest-900 pt-28 pb-16 md:pt-32 md:pb-20">
       <div className="absolute inset-0 w-full h-full">
         <Image
           src={data.hero.image}
@@ -26,7 +26,7 @@ function UnitHero({ data }: { data: UnitData }) {
         <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 flex flex-col justify-end pb-24 md:justify-center md:pb-0 h-full pt-24">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 flex flex-col justify-center my-auto">
         <div className="w-full md:max-w-[720px] text-surface">
           <p className="font-body text-[11px] md:text-sm uppercase tracking-[0.25em] text-sage-300 mb-6 animate-[fade-in-up_600ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0" style={{ animationDelay: '100ms' }}>
             {data.hero.eyebrow}
