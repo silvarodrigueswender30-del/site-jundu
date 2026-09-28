@@ -24,6 +24,7 @@ export interface UnitData {
     title: string;
     text: string;
     image: string;
+    video?: string;
   };
   
   gastronomy: {
@@ -67,7 +68,8 @@ export const unitsData: Record<string, UnitData> = {
       eyebrow: "ITAGUÁ",
       title: "Entre a cidade, a mesa e os encontros.",
       text: "Localizado no coração de Ubatuba, o Jundu Itaguá traz uma atmosfera sofisticada e acolhedora, ideal para quem busca uma vivência gastronômica completa. Com um projeto arquitetônico que valoriza elementos naturais, criamos o ambiente perfeito para almoços tranquilos, jantares memoráveis e encontros ao longo do dia.",
-      image: "/images/history/jundu-history-itagua.avif"
+      image: "/images/history/jundu-history-itagua.avif",
+      video: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/StorySaver.to_AQPLuGdvItXugImVeuObTHcGY6_WR5cMLT3BL7bgKFyJIj6KYxsRcpqqdkylS-20KR-0d2XaLUMRkeZ0yLCZo7iJ_jmg4gIljIMme94.mp4"
     },
     
     gastronomy: {

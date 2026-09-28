@@ -110,16 +110,18 @@ function UnitInformationRail({ data }: { data: UnitData }) {
 
 // --- EXPERIENCE COMPONENT ---
 function UnitExperience({ data }: { data: UnitData }) {
+  const hasVideo = Boolean(data.experience.video);
+
   return (
     <section className="relative w-full bg-surface text-forest-900 py-20 md:py-28 lg:py-36">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
         
-        {/* Text Area (approx 38%) */}
-        <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
-          <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.28em] text-forest-800/60 mb-8">
+        {/* Text Area */}
+        <div className={`flex flex-col justify-center ${hasVideo ? "lg:col-span-6" : "lg:col-span-5"}`}>
+          <p className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.28em] text-forest-800/60 mb-6 md:mb-8">
             {data.experience.eyebrow}
           </p>
-          <h2 className="text-title-editorial text-forest-900 mb-10 text-balance">
+          <h2 className="text-title-editorial text-forest-900 mb-8 md:mb-10 text-balance max-w-[480px]">
             {data.experience.title}
           </h2>
           <p className="font-body text-[16px] md:text-[17px] text-forest-900/80 leading-[1.8] max-w-[460px]">
@@ -127,15 +129,31 @@ function UnitExperience({ data }: { data: UnitData }) {
           </p>
         </div>
 
-        {/* Image Area (approx 58%) */}
-        <div className="lg:col-span-7 relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden bg-forest-900/5 order-1 lg:order-2">
-          <Image
-            src={data.experience.image}
-            alt={data.name}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover object-center"
-          />
+        {/* Media Area (Video 9:16 or Image) */}
+        <div className={`w-full flex justify-center lg:justify-end ${hasVideo ? "lg:col-span-6" : "lg:col-span-7"}`}>
+          {hasVideo ? (
+            <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-forest-900/10 shadow-lg">
+              <video
+                src={data.experience.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
+          ) : (
+            <div className="relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden bg-forest-900/5">
+              <Image
+                src={data.experience.image}
+                alt={data.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover object-center"
+              />
+            </div>
+          )}
         </div>
 
       </div>
