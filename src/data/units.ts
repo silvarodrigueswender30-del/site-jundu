@@ -208,24 +208,24 @@ export const unitsData: Record<string, UnitData> = {
       eyebrow: "PRAIA GRANDE",
       title: "Um espaço feito para viver Ubatuba.",
       text: "O Espaço Jundu Gastrobar é nossa maior unidade, concebida para vibrar junto com uma das praias mais queridas da região. O projeto integra amplos salões e espaços para confraternizações, oferecendo uma experiência dinâmica onde a boa mesa e o clima de celebração andam juntos.",
-      image: "/images/history/jundu-history-gastrobar.avif",
+      image: "/images/units/praia-grande/praia-grande-ambiente-gastrobar.avif",
       video: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/jundogastro.mp4"
     },
     
     gastronomy: {
       title: "Novas técnicas, mesma essência.",
       text: "Aqui, a culinária do Jundu se expande. Ingredientes locais ganham contornos modernos com a integração de técnicas asiáticas e influências diversas, compondo um menu arrojado. O bar oferece uma seleção vibrante de drinks para acompanhar os diferentes ritmos da casa.",
-      mainImage: "/images/kitchen/jundu-kitchen-06.avif",
-      secondaryImage1: "/images/kitchen/jundu-kitchen-02.avif",
-      secondaryImage2: "/images/editorial/jundu-events.avif"
+      mainImage: "/images/units/praia-grande/praia-grande-gastronomia-principal.avif",
+      secondaryImage1: "/images/units/praia-grande/praia-grande-coquetelaria.avif",
+      secondaryImage2: "/images/units/praia-grande/praia-grande-ambiente-gastrobar.avif"
     },
     
     gallery: [
-      { src: "/images/units/jundu-unit-praia-grande.avif", alt: "Energia vibrante do Espaço Jundu Gastrobar" },
-      { src: "/images/history/jundu-history-gastrobar.avif", alt: "Fachada e área externa do Jundu Praia Grande" },
-      { src: "/images/editorial/jundu-events.avif", alt: "Ambiente preparado para eventos e grupos" },
-      { src: "/images/kitchen/jundu-kitchen-06.avif", alt: "Técnicas modernas e pratos bem elaborados" },
-      { src: "/images/kitchen/jundu-kitchen-02.avif", alt: "Detalhes do preparo na cozinha" }
+      { src: "/images/units/praia-grande/praia-grande-galeria-01.avif", alt: "Ambiente principal e salão do Espaço Jundu Gastrobar" },
+      { src: "/images/units/praia-grande/praia-grande-galeria-02.avif", alt: "Área externa e fachada do Jundu Praia Grande" },
+      { src: "/images/units/praia-grande/praia-grande-galeria-03.avif", alt: "Detalhes da arquitetura e decoração interna" },
+      { src: "/images/units/praia-grande/praia-grande-galeria-04.avif", alt: "Experiência gastronômica e mesa posta" },
+      { src: "/images/units/praia-grande/praia-grande-galeria-05.avif", alt: "Encontros e momentos no Jundu Praia Grande" }
     ],
     
     faq: [
