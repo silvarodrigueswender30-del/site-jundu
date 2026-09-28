@@ -139,24 +139,24 @@ export const unitsData: Record<string, UnitData> = {
       eyebrow: "PRUMIRIM",
       title: "Entre a mesa e o mar.",
       text: "Nascido das raízes caiçaras, o Praia Bar em Prumirim foi o primeiro endereço do Grupo Jundu. Aqui, a experiência acontece em total sintonia com a praia. A arquitetura natural, a sombra das árvores e o som das ondas formam o cenário para momentos de pausa e celebração.",
-      image: "/images/history/jundu-history-prumirim.avif",
+      image: "/images/units/prumirim/prumirim-ambiente-praia.avif",
       video: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/jundupraiabar.mp4"
     },
     
     gastronomy: {
       title: "Frescor, brisa e sabores caiçaras.",
       text: "Nossa essência na praia reflete-se em pratos onde os frutos do mar e os ingredientes regionais são os protagonistas. Coquetéis refrescantes e petiscos bem executados completam o menu, perfeito para ser compartilhado à beira-mar.",
-      mainImage: "/images/editorial/jundu-gastronomia.avif",
-      secondaryImage1: "/images/stories/story-gastronomia.webp",
-      secondaryImage2: "/images/architecture/jundu-landscape-meeting.avif"
+      mainImage: "/images/units/prumirim/prumirim-gastronomia-principal.avif",
+      secondaryImage1: "/images/units/prumirim/prumirim-coquetelaria.avif",
+      secondaryImage2: "/images/units/prumirim/prumirim-ambiente-praia.avif"
     },
     
     gallery: [
-      { src: "/images/units/jundu-unit-prumirim.avif", alt: "Vista para o mar e mesas no Jundu Prumirim" },
-      { src: "/images/history/jundu-history-prumirim.avif", alt: "Pé na areia no Praia Bar Prumirim" },
-      { src: "/images/architecture/jundu-landscape-meeting.avif", alt: "Integração do salão com a praia" },
-      { src: "/images/editorial/jundu-gastronomia.avif", alt: "Prato com frutos do mar no Jundu" },
-      { src: "/images/stories/story-atmosfera.webp", alt: "Clima e atmosfera do restaurante" }
+      { src: "/images/units/prumirim/prumirim-galeria-01.avif", alt: "Vista deslumbrante e experiência completa no Jundu Prumirim" },
+      { src: "/images/units/prumirim/prumirim-galeria-02.avif", alt: "Estrutura integrada à natureza na Praia do Prumirim" },
+      { src: "/images/units/prumirim/prumirim-galeria-03.avif", alt: "Detalhes do ambiente e sombra das árvores na praia" },
+      { src: "/images/units/prumirim/prumirim-galeria-04.avif", alt: "Prato especial de frutos do mar frescos" },
+      { src: "/images/units/prumirim/prumirim-galeria-05.avif", alt: "Momentos de pausa e celebração na praia" }
     ],
     
     faq: [
