@@ -208,7 +208,8 @@ export const unitsData: Record<string, UnitData> = {
       eyebrow: "PRAIA GRANDE",
       title: "Um espaço feito para viver Ubatuba.",
       text: "O Espaço Jundu Gastrobar é nossa maior unidade, concebida para vibrar junto com uma das praias mais queridas da região. O projeto integra amplos salões e espaços para confraternizações, oferecendo uma experiência dinâmica onde a boa mesa e o clima de celebração andam juntos.",
-      image: "/images/history/jundu-history-gastrobar.avif"
+      image: "/images/history/jundu-history-gastrobar.avif",
+      video: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/jundogastro.mp4"
     },
     
     gastronomy: {
