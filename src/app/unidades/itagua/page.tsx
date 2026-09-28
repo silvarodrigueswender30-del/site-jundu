@@ -1,35 +1,39 @@
 import { Metadata } from "next";
 import { unitsData } from "@/data/units";
+import { UNIDADES_JUNDU } from "@/data/unidades";
 import { UnitPage } from "@/components/units/unit-page";
 
 const data = unitsData.itagua;
+const unidadeConfig = UNIDADES_JUNDU.itagua;
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://site-jundu.vercel.app";
 
 export const metadata: Metadata = {
-  title: data.seo.title,
-  description: data.seo.description,
+  title: "Itaguá — Ubatuba",
+  description: "Conheça o Jundu Itaguá em Ubatuba. Aproveite nossa gastronomia autoral, vista mar exclusiva e ambiente sofisticado no coração da cidade. Reserve sua mesa ou veja o cardápio.",
   alternates: {
     canonical: `${SITE_URL}/unidades/itagua`,
   },
   openGraph: {
-    title: data.seo.title,
-    description: data.seo.description,
+    title: "Jundu Itaguá | Ubatuba | Gastronomia e Sofisticação",
+    description: "Ambiente exclusivo na unidade Itaguá em Ubatuba. Gastronomia caiçara autoral, coquetelaria sofisticada e atmosfera única.",
     url: `${SITE_URL}/unidades/itagua`,
+    siteName: "Jundu Ubatuba",
     type: "website",
+    locale: "pt_BR",
     images: [
       {
-        url: data.hero.image,
+        url: "/images/units/jundu-unit-itagua.avif",
         width: 1200,
         height: 630,
-        alt: data.name,
+        alt: "Jundu Itaguá Ubatuba",
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: data.seo.title,
-    description: data.seo.description,
-    images: [data.hero.image],
+    title: "Jundu Itaguá | Ubatuba",
+    description: "Gastronomia autoral e atmosfera sofisticada no coração de Ubatuba.",
+    images: ["/images/units/jundu-unit-itagua.avif"],
   }
 };
 
@@ -43,6 +47,9 @@ export default function ItaguaPage() {
       `${SITE_URL}${data.hero.image}`,
       `${SITE_URL}${data.gallery[0].src}`
     ],
+    "sameAs": [
+      unidadeConfig.instagramUrl
+    ],
     ...(data.phone && { "telephone": data.phone }),
     "address": {
       "@type": "PostalAddress",
@@ -51,8 +58,6 @@ export default function ItaguaPage() {
       "addressRegion": "SP",
       "addressCountry": "BR"
     },
-    // We only output what we know. 'hours' string needs parsing or keeping simple for JSON-LD.
-    // Given the known "Terça a Domingo — 12h às 23h" we could map it, but it's safer to provide basic if we do.
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
