@@ -79,14 +79,14 @@ export function KitchenToScreen() {
                 letterSpacing: "-0.025em",
               }}
             >
-              Da cozinha
+              Abrimos a cozinha
               <br />
-              para a tela.
+              para você.
             </h2>
           </div>
           <div className="md:max-w-[40ch] pb-2">
             <p className="font-body text-[16px] md:text-[17px] text-forest-900/80 leading-[1.6]">
-              Acompanhe a cadência dos preparos, a montagem dos pratos e o movimento do salão. O Jundu em tempo real.
+              A cadência dos preparos, a montagem dos pratos, o movimento do salão: o Jundu como ele é, em tempo real.
             </p>
           </div>
         </div>

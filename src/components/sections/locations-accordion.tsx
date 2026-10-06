@@ -102,9 +102,9 @@ export function LocationsAccordion() {
                   letterSpacing: "-0.025em",
                 }}
               >
-                <span className="lg:whitespace-nowrap">Três unidades.</span>
+                <span className="lg:whitespace-nowrap">Qual Jundu combina</span>
                 <br />
-                <span className="lg:whitespace-nowrap">Três atmosferas.</span>
+                <span className="lg:whitespace-nowrap">com o seu dia?</span>
               </h2>
             </div>
 
@@ -194,7 +194,7 @@ export function LocationsAccordion() {
                         e.stopPropagation();
                       }}
                     >
-                      Conhecer unidade
+                      Ver este Jundu
                     </a>
                   </div>
                 </div>

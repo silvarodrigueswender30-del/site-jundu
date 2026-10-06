@@ -56,7 +56,7 @@ export function BrandTimeline() {
                   <div className="relative w-full aspect-[4/3] mb-6 rounded-[12px] overflow-hidden lg:mx-6 lg:w-[calc(100%-48px)]">
                     <Image
                       src={milestone.image}
-                      alt={milestone.title}
+                      alt={milestone.alt || milestone.title}
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 25vw"

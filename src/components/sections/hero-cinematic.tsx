@@ -17,7 +17,7 @@ export function HeroCinematic() {
         <div className="w-full md:w-[58%] text-surface">
           
           <p className="font-body text-xs md:text-sm uppercase tracking-widest text-sage-300 mb-6 drop-shadow-md animate-[fade-in-up_600ms_cubic-bezier(.22,1,.36,1)_forwards] opacity-0" style={{ animationDelay: '100ms' }}>
-            RESERVE SUA EXPERIÊNCIA · CONHEÇA O JUNDU
+            UBATUBA · DESDE 2013
           </p>
           
           {/* Título Monumental com Elsie */}
@@ -33,11 +33,11 @@ export function HeroCinematic() {
               textWrap: 'balance'
             }}
           >
-            Sinta o Jundu antes de chegar.
+            A mesa onde Ubatuba vira lembrança.
           </h1>
           
           <p className="font-body text-base md:text-lg text-surface/90 mb-10 max-w-sm md:max-w-md drop-shadow-md opacity-0 animate-[fade-in-up_700ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '260ms' }}>
-            Arquitetura, sabores e encontros em movimento.
+            Você chega como visita. Sai como parte da história.
           </p>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 opacity-0 animate-[fade-in-up_750ms_cubic-bezier(.22,1,.36,1)_forwards]" style={{ animationDelay: '340ms' }}>
@@ -45,7 +45,7 @@ export function HeroCinematic() {
               href="/reservas"
               className="font-body text-base font-bold bg-primary text-forest-900 px-8 py-3.5 rounded-full hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-surface transition-colors w-full sm:w-auto text-center"
             >
-              Reservar uma mesa
+              Reservar minha mesa
             </a>
             
             <a 
@@ -59,7 +59,7 @@ export function HeroCinematic() {
                 </svg>
               </span>
               <span className="font-body text-sm font-bold text-surface tracking-wide group-hover:text-primary transition-colors drop-shadow-md">
-                Conhecer as unidades
+                Descobrir os três Jundu
               </span>
             </a>
           </div>
@@ -75,7 +75,7 @@ export function HeroCinematic() {
           
           {/* Scroll Autoral Discreto */}
           <div className="flex flex-col items-center gap-3 opacity-60">
-            <span className="font-body text-[10px] tracking-widest uppercase">Descobrir</span>
+            <span className="font-body text-[10px] tracking-widest uppercase">Entrar</span>
             <span className="w-px h-14 bg-gradient-to-b from-surface/80 to-transparent"></span>
           </div>
         </div>

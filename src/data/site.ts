@@ -24,88 +24,88 @@ export const siteData = {
     video: { label: "Assistir à experiência" },
   },
   brandManifesto: {
-    eyebrow: "ORIGEM & TERRITÓRIO",
-    title: "Onde a praia\ncria raízes.",
+    eyebrow: "A PLANTA QUE DEU NOME À CASA",
+    title: "Cresce onde\nquase nada cresce.",
     paragraphs: [
-      "Jundu é o nome de uma vegetação nativa que cresce junto à areia, resiste ao vento e ajuda a proteger o litoral. Foi dessa relação entre natureza, território e cultura caiçara que nasceu a identidade do Grupo Jundu.",
-      "Uma marca criada em Ubatuba para transformar ingredientes, arquitetura, encontros e paisagem em experiências que carregam a essência do lugar."
+      "Na faixa de areia, onde o vento não negocia e o sal castiga, uma vegetação teimosa se agarra ao chão e segura a praia inteira no lugar. O nome dela é jundu.",
+      "Foi essa planta que emprestou o nome, e o jeito, a uma ideia nascida em Ubatuba: transformar ingrediente, madeira, encontro e paisagem em lugares que resistem ao tempo e protegem o que importa: o momento de estar junto."
     ],
-    historyLabel: "CONHEÇA A NOSSA HISTÓRIA",
+    historyLabel: "LEIA COMO TUDO COMEÇOU",
     historyHref: "#historia",
     rootArtwork: undefined,
   },
   brandTimeline: {
     eyebrow: "DESDE 2013",
-    title: "Uma história que\ncomeçou na praia.",
-    description: "Do primeiro Praia Bar em Prumirim a um grupo com diferentes experiências em Ubatuba, o Jundu cresceu sem perder a ligação com a cultura caiçara, a natureza e o desejo de receber bem.",
+    title: "Começou com um\nquiosque de praia.",
+    description: "Depois de anos no Projeto Tamar e de fins de semana ajudando os pais no quiosque da família, na mesma praia de Prumirim, Gil Eustáquio resolveu montar o próprio lugar. Começou como brincadeira e foi ficando sério. Treze anos depois, são três casas, mais de 200 pessoas e uma pergunta que guia cada decisão: o que faria alguém sair daqui mais feliz do que entrou?",
     milestones: [
       {
         marker: "2013",
-        title: "Praia Bar Prumirim",
-        description: "Gilberto Eustáquio e Daniela Costa inauguram o primeiro Jundu em 13 de novembro, levando para o quiosque a cultura caiçara, a arquitetura natural e a relação com a praia.",
+        title: "O dia em que a praia ganhou endereço",
+        description: "Em 13 de novembro, Gilberto Eustáquio e Daniela Costa, veterinária de formação, abrem o Praia Bar em Prumirim: mesas de tronco, pé na areia e a cultura caiçara em cada traço.",
         image: "/images/history/jundu-history-prumirim.avif",
-        alt: "Prumirim",
+        alt: "Mesas pé na areia sob cobertura rústica de palha no Praia Bar Prumirim",
         objectPosition: "center center"
       },
       {
         marker: "EXPANSÃO",
-        title: "Lounge Bar Itaguá",
-        description: "O bairro do Itaguá recebe o primeiro restaurante do grupo. A chef Maria Eustáquio assume a cozinha, unindo sofisticação e culinária caiçara.",
+        title: "Itaguá: a cozinha ganha uma chef",
+        description: "O primeiro restaurante do grupo nasce no bairro do Itaguá. Maria Eustáquio assume o fogão e une sofisticação à culinária caiçara.",
         image: "/images/history/jundu-history-itagua.avif",
-        alt: "Lounge Bar Itaguá",
+        alt: "Salão iluminado do restaurante Jundu no Itaguá com estrutura de madeira e clientes às mesas",
         objectPosition: "center center"
       },
       {
         marker: "2021",
-        title: "Espaço Jundu Gastrobar",
-        description: "O maior restaurante do grupo nasce na Praia Grande. O chef Fabio Eustáquio combina técnicas asiáticas e ingredientes brasileiros em uma nova expressão gastronômica.",
+        title: "Praia Grande: o maior salto",
+        description: "Nasce o Espaço Jundu Gastrobar, a maior casa do grupo. O chef Fabio Eustáquio cruza técnicas asiáticas com ingredientes brasileiros e abre uma nova expressão gastronômica.",
         image: "/images/history/jundu-history-gastrobar.avif",
-        alt: "Espaço Jundu Gastrobar na Praia Grande",
+        alt: "Camarões empanados e coquetéis autorais no Espaço Jundu Gastrobar",
         objectPosition: "center center"
       },
       {
         marker: "200+",
-        title: "Pessoas, uma mesma essência",
-        description: "O Grupo Jundu passa a reunir mais de 200 colaboradores com o propósito de fazer cada visitante sair melhor e mais feliz do que entrou.",
+        title: "Gente que faz o lugar",
+        description: "Mais de 200 colaboradores com um propósito só: fazer cada visitante sair melhor e mais feliz do que entrou.",
         image: "/images/history/jundu-history-people.avif",
-        alt: "Equipe do Jundu",
+        alt: "Equipe de cozinha do Jundu com aventais da casa reunida na cozinha",
         objectPosition: "center center"
       }
     ]
   },
   peopleBehindJundu: {
-    eyebrow: "QUEM DÁ VIDA À EXPERIÊNCIA",
-    title: "A essência do Jundu\npassa por muitas mãos.",
-    description: "Da cozinha ao salão, do bar ao cuidado com cada detalhe, o Jundu é construído todos os dias por pessoas que compartilham o mesmo jeito de receber. Técnica, afeto, repertório e presença transformam cada visita em uma experiência conectada ao lugar.",
+    eyebrow: "POR TRÁS DE CADA PRATO",
+    title: "Por trás de cada\nprato, existe\num rosto.",
+    description: "Você sente o sabor. Nem sempre vê quem o construiu: a mão que acerta o ponto na cozinha, o olhar do salão que percebe antes de você pedir, o bar que acerta a medida. O Jundu é feito todos os dias por pessoas que dividem o mesmo jeito de receber, e é isso que você sente, mesmo sem saber explicar.",
     photo: {
       src: "/images/people/jundu-people-a.avif",
       alt: "Equipe do Jundu em ação"
     },
     stats: {
       number: "200+",
-      label: "COLABORADORES"
+      label: "PESSOAS NO TIME"
     },
     leaders: [
       {
         name: "COZINHA",
-        role: "Ingredientes, técnica e memória transformados em experiência."
+        role: "Ingredientes, técnica e memória viram o prato que chega quente à mesa."
       },
       {
         name: "HOSPITALIDADE",
-        role: "Um jeito de receber que atravessa todas as unidades."
+        role: "Um jeito de receber que atravessa os três endereços."
       },
       {
         name: "BAR & SALÃO",
-        role: "Ritmo, presença e cuidado em cada encontro."
+        role: "Ritmo, olhar atento e cuidado em cada encontro."
       }
     ]
   },
   sections: {
     editorial: {
       eyebrow: "Gastronomia & Território",
-      title: "O sabor de Ubatuba em cada detalhe.",
-      text: "Ingredientes, arquitetura e encontros se conectam em uma experiência que nasce do litoral e ganha identidade em cada ambiente.",
-      link: { label: "Conheça a nossa história", href: "#historia" },
+      title: "Ubatuba tem gosto. Venha provar.",
+      text: "Mar, brasa, fruta, erva, farinha. O litoral encontra o fogo certo e chega à mesa com a arquitetura e a conversa em volta. Não é só jantar: é entender, em poucas garfadas, onde você está.",
+      link: { label: "Entre na nossa história", href: "#historia" },
       image: {
         src: "/images/editorial/jundu-gastronomia.avif",
         alt: "Prato da alta gastronomia servido no restaurante Jundu",
@@ -113,12 +113,12 @@ export const siteData = {
     },
     stories: {
       eyebrow: "HISTÓRIAS EM MOVIMENTO",
-      title: "O Jundu acontece\nem movimento.",
-      text: "Gestos, sabores e atmosferas que transformam cada visita em experiência.",
+      title: "Antes de vir,\nveja como é estar aqui.",
+      text: "Chamas, passos, copos, risadas. Três cenas curtas para sentir o ritmo da casa antes de sentar nela.",
       items: [
         {
           id: "story-atendimento",
-          title: "Servir é acolher.",
+          title: "Aqui, servir é acolher.",
           category: "ATENDIMENTO",
           poster: "/images/stories/story-atendimento.webp", // Will be ignored by component
           videoSrc: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/atendimento%20(2).mp4#t=1.5",
@@ -127,7 +127,7 @@ export const siteData = {
         },
         {
           id: "story-gastronomia",
-          title: "O prato chega à mesa.",
+          title: "Do fogo, direto para você.",
           category: "GASTRONOMIA",
           poster: "/images/stories/story-gastronomia.webp",
           videoSrc: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/gastronomia.mp4#t=1.5",
@@ -136,7 +136,7 @@ export const siteData = {
         },
         {
           id: "story-atmosfera",
-          title: "O ambiente se abre ao mar.",
+          title: "A casa se abre para o mar.",
           category: "ATMOSFERA",
           poster: "/images/stories/story-atmosfera.webp",
           videoSrc: "https://jszueizwowynhekpsfii.supabase.co/storage/v1/object/public/jundu/atmosfera.mp4#t=1.5",
@@ -147,8 +147,8 @@ export const siteData = {
     },
     architecture: {
       eyebrow: "ARQUITETURA & ATMOSFERA",
-      title: "Espaços que fazem\nparte da experiência.",
-      text: "Madeira, luz, vegetação e paisagem se encontram em ambientes pensados para acolher, permanecer e criar memória.",
+      title: "Você entra.\nO tempo desacelera.",
+      text: "Madeira que guarda calor. Luz que vira conversa. Vegetação, brisa, mar na moldura. Cada espaço foi pensado para você ficar mais um pouco, e a hora passa sem pedir licença.",
       images: [
         {
           src: "/images/architecture/jundu-architecture-presence.avif",
@@ -173,16 +173,16 @@ export const siteData = {
     jWindow: {
       eyebrow: "UMA MESMA ESSÊNCIA",
       title: 'Muda o cenário.\nA sensação permanece.',
-      text: "Entre praia, cidade e natureza, cada endereço encontra sua própria atmosfera — mantendo o mesmo cuidado, acolhimento e jeito de receber.",
+      text: "Praia, cidade ou natureza: cada endereço tem a sua atmosfera. Mas o abraço é o mesmo, com o cuidado, o acolhimento e o jeito de receber que fazem você se sentir em casa antes mesmo de abrir o cardápio.",
       image: "/images/architecture/jundu-material-light.avif",
       alt: "Fotografia de detalhe do bar Jundu vista através da letra J",
     },
     gastronomyPillars: {
       eyebrow: "GASTRONOMIA & COQUETELARIA",
-      title: "Da origem\nao copo.",
-      text: "A cozinha do Jundu nasce da cultura caiçara e se abre para novas técnicas, ingredientes e encontros. Dos pratos autorais à coquetelaria, cada criação procura traduzir Ubatuba sem limitar sua expressão.",
+      title: "Do fogão\nao último gole.",
+      text: "A cozinha nasce da cultura caiçara e se abre ao novo: técnicas, ingredientes, encontros. Do prato autoral à coquetelaria, cada criação tenta responder à mesma pergunta: como seria Ubatuba se coubesse num prato? E num copo?",
       cta: {
-        label: "CONHEÇA NOSSAS UNIDADES",
+        label: "ESCOLHA O SEU JUNDU",
         href: "#unidades"
       },
       gallery: {
@@ -199,26 +199,26 @@ export const siteData = {
         {
           id: "01",
           title: "Cultura caiçara",
-          description: "A relação com o mar, a praia e os ingredientes brasileiros permanece como ponto de partida para os sabores do Jundu."
+          description: "O mar, a praia e os ingredientes brasileiros são o ponto de partida. Tudo o que o Jundu cria volta para eles."
         },
         {
           id: "02",
           title: "Cozinha em movimento",
-          description: "Maria Eustáquio une sofisticação à culinária caiçara, enquanto Fabio Eustáquio aproxima técnicas asiáticas de ingredientes brasileiros."
+          description: "Maria Eustáquio une sofisticação à culinária caiçara. Fabio Eustáquio traz técnicas asiáticas para ingredientes brasileiros. Dois olhares, uma mesma mesa."
         },
         {
           id: "03",
           title: "Coquetelaria autoral",
-          description: "Frutas, ervas, destilados e referências locais constroem bebidas que acompanham a identidade de cada unidade."
+          description: "Frutas, ervas, destilados e referências locais viram bebidas com a cara de cada unidade, e você só entende no primeiro gole."
         }
       ]
     },
     eventsShowcase: {
       eyebrow: "CELEBRAÇÕES & ENCONTROS",
-      title: "Eventos que\nganham cenário.",
-      text: "Aniversários, casamentos, confraternizações e encontros especiais ganham outra dimensão quando gastronomia, atmosfera e hospitalidade se encontram. No Jundu, cada ocasião encontra um espaço com identidade própria para ser vivida e lembrada.",
+      title: "Seu momento merece\num cenário.",
+      text: "Alguns dias não cabem em qualquer lugar. Aniversários, casamentos, confraternizações: quando gastronomia, atmosfera e hospitalidade se encontram, a data vira lembrança. No Jundu, cada ocasião encontra um espaço com identidade própria.",
       cta: {
-        label: "PLANEJE SEU EVENTO",
+        label: "QUERO PLANEJAR MEU EVENTO",
         href: "#contato"
       },
       photo: {
@@ -229,53 +229,53 @@ export const siteData = {
         prefix: "ATÉ",
         number: "350",
         suffix: "PESSOAS",
-        description: "Capacidade para eventos no Espaço Jundu Gastrobar, além de diferentes formatos nas demais unidades."
+        description: "Capacidade no Espaço Jundu Gastrobar. As demais unidades têm formatos próprios para cada tipo de encontro."
       },
       modalities: [
         {
           id: "01",
           title: "CASAMENTOS",
-          description: "Celebrações com identidade, gastronomia e a paisagem de Ubatuba por perto."
+          description: "O sim com o mar de testemunha, a gastronomia como presente e a paisagem de Ubatuba por perto."
         },
         {
           id: "02",
           title: "EVENTOS CORPORATIVOS",
-          description: "Estrutura para encontros, confraternizações e experiências de marca."
+          description: "Equipes que se encontram num cenário diferente voltam diferentes. Estrutura para confraternizações e experiências de marca."
         },
         {
           id: "03",
           title: "ANIVERSÁRIOS & CELEBRAÇÕES",
-          description: "Momentos especiais conduzidos com cuidado em cada detalhe."
+          description: "Os momentos que você quer guardar, conduzidos com cuidado em cada detalhe."
         }
       ]
     },
     natureCommitment: {
       eyebrow: "GUARDIÕES DA NATUREZA",
-      title: "Crescer junto ao litoral\né também cuidar dele.",
-      text: "O nome Jundu carrega a memória de uma vegetação nativa essencial para a proteção das praias. Essa relação com o território também orienta escolhas do grupo, que busca unir hospitalidade, responsabilidade social e cuidado com o ambiente.",
+      title: "Quem vive do litoral\ncuida do litoral.",
+      text: "O jundu protege a praia muito antes de qualquer restaurante existir. Seguimos o exemplo dele: escolhas que unem hospitalidade, responsabilidade social e cuidado com o ambiente.",
       highlight: "Natureza não é cenário.\nÉ parte da nossa origem.",
       commitments: [
         {
           id: "01",
           title: "RECICLAGEM",
-          description: "Todas as unidades mantêm um processo de organização e encaminhamento de resíduos para reciclagem."
+          description: "Todas as unidades organizam e encaminham resíduos para reciclagem."
         },
         {
           id: "02",
           title: "TERRITÓRIO",
-          description: "A cultura caiçara, a paisagem e a vegetação costeira fazem parte da origem e da identidade do Jundu."
+          description: "Cultura caiçara, paisagem e vegetação costeira não são tema: são a origem do Jundu."
         },
         {
           id: "03",
           title: "RESPONSABILIDADE",
-          description: "O grupo declara o compromisso de contribuir continuamente para o desenvolvimento sustentável da economia local."
+          description: "Um compromisso contínuo de contribuir com o desenvolvimento sustentável da economia local."
         }
       ]
     },
     locations: {
-      eyebrow: "UBATUBA, TRÊS EXPERIÊNCIAS",
-      title: "Três unidades.\nTrês atmosferas.",
-      text: "Da praia ao salão, cada endereço traduz o Jundu de uma forma particular — mantendo a mesma essência em cada experiência.",
+      eyebrow: "TRÊS ENDEREÇOS, UMA ESCOLHA",
+      title: "Qual Jundu combina\ncom o seu dia?",
+      text: "Pé na areia, jantar com assinatura ou uma tarde longa de frente para o mar? Cada endereço traduz o Jundu de um jeito, e todos guardam a mesma essência.",
       units: [
         {
           id: "itagua",
@@ -304,10 +304,10 @@ export const siteData = {
       ]
     },
     finalCta: {
-      title: "Viva essa experiência.",
-      subtitle: "Descubra o sabor e a atmosfera de Ubatuba em nossas unidades.",
-      primaryAction: { label: "Conheça as Unidades", href: "#unidades" },
-      secondaryAction: { label: "Fazer uma Reserva", href: "#reserva" },
+      title: "Sua mesa está esperando.",
+      subtitle: "Escolha o seu Jundu, reserve e deixe que a gente cuide do resto: o sabor, o cenário e a sensação de ser bem recebido.",
+      primaryAction: { label: "Escolher minha unidade", href: "#unidades" },
+      secondaryAction: { label: "Reservar agora", href: "#reserva" },
     },
     footer: {
       brand: "Jundu Ubatuba",

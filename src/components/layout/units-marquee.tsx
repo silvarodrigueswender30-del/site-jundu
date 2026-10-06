@@ -1,23 +1,31 @@
 import { JunduFlowerIcon } from "@/components/icons/jundu-flower-icon";
 
-// Copy do marquee — par em loop: JUNDU + UBATUBA EM CADA DETALHE
-// 7 repetições por metade garantem cobertura contínua em viewports até 1920px+.
+// Copy do marquee — sequência em loop:
+// SAL NA PELE · JUNDU · FOGO NA COZINHA · JUNDU · 3× VENCEDOR DO FESTIVAL GASTRONÔMICO DE UBATUBA · JUNDU
+// Cada par alterna uma das três frases (index % 3). REPEAT_COUNT precisa ser
+// múltiplo de 3 para a emenda entre as duas metades não repetir frase.
+// 9 repetições por metade garantem cobertura contínua em viewports até 1920px+.
 // O overflow:hidden do container corta o excesso — sem custo de performance.
-const REPEAT_COUNT = 7;
+const MARQUEE_PHRASES = [
+  "SAL NA PELE",
+  "FOGO NA COZINHA",
+  "3× VENCEDOR DO FESTIVAL GASTRONÔMICO DE UBATUBA",
+];
+const REPEAT_COUNT = 9;
 
-// Um par: JUNDU · [flor] · UBATUBA EM CADA DETALHE · [flor]
+// Um par: [frase] · [flor] · JUNDU · [flor]
 // gap-8 (32px) entre texto e flor; mx-5 (20px) de margem na flor = espaçamento ~52px entre blocos.
 function MarqueePair({ index }: { index: number }) {
   return (
     <span className="flex items-center shrink-0">
       <span className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.32em] text-moss-600 whitespace-nowrap px-8">
-        JUNDU
+        {MARQUEE_PHRASES[index % MARQUEE_PHRASES.length]}
       </span>
       <span className="flex items-center shrink-0 text-moss-600 opacity-70" aria-hidden="true">
         <JunduFlowerIcon size={14} />
       </span>
       <span className="font-body text-[11px] md:text-[13px] uppercase tracking-[0.32em] text-moss-600 whitespace-nowrap px-8">
-        UBATUBA EM CADA DETALHE
+        JUNDU
       </span>
       {/* Separador final de cada par — visible entre pares consecutivos */}
       <span
@@ -50,7 +58,7 @@ export function UnitsMarquee() {
   return (
     <div
       role="presentation"
-      aria-label="Jundu — Ubatuba em cada detalhe"
+      aria-label="Jundu — Sal na pele, fogo na cozinha, 3× vencedor do festival gastronômico de Ubatuba"
       className="w-full overflow-hidden bg-background border-y border-border py-4 md:py-5 select-none"
     >
       {/*
